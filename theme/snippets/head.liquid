@@ -9,8 +9,6 @@
 {%- comment -%}Pre connects{%- endcomment -%}
 <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
 <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
-{%- comment -%}Pre loads{%- endcomment -%}
-<link title="theme" rel="preload" href="{{ 'simply.css' | asset_url }}" as="style">
 <title>
   {{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
 </title>
@@ -18,7 +16,7 @@
 <meta name="description" content="{{ page_description | escape }}">
 {% endif %}
 {% render 'main-css' %}
-<noscript><link rel="stylesheet" href="{{ 'simply.css' | asset_url }}"></noscript>
+<link rel="stylesheet" href="{{ 'simply.css' | asset_url }}">
 <script>
   window.simply = window.simply || {};
   window.cn = function (o) { return "undefined" == typeof o || null == o || "" == o.toString().trim() };

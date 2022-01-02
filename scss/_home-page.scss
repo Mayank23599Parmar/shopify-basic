@@ -1,0 +1,90 @@
+// home page styles
+
+.home-page {
+    // home video section start
+    .home-video-warpper {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        background: #555;
+        .video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .home-video-btn-wrapper {
+            position: absolute;
+            bottom: 100px;
+            left: 50%;
+            @include transform(translateX(-50%));
+            font-size: 30px;
+            text-align: center;
+            letter-spacing: 0.1em;
+            padding: 25px;
+            border: 2px solid $color-white;
+            color: $color-white;
+            width: 500px;
+            @include mq("phone-and-tablet") {
+                bottom: 50px;
+                padding: 15px 20px;
+                width: calc(100% - 90px);
+                font-size: 20px;
+            }
+        }
+    }
+    // home page collection list
+    .collection-list {
+        padding: 30px 15px 0 15px;
+        .scroll-ul {
+            .li {
+                .collection-image-warpper {
+                    position: relative;
+                    padding: 10% 10% 4.5%;
+                    background: none;
+                    .product-img-frame {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        height: 75%;
+                        width: 100%;
+                        background: #888;
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                        }
+                    }
+                    .image {
+                        position: relative;
+                        padding-top: 133%;
+                        width: auto;
+                        a {
+                            .img {
+                                position: absolute;
+                                top: 50%;
+                                left: 50%;
+                                width: 107%;
+                                height: 107%;
+                                border: 0.25em solid #000;
+                                -webkit-transform: translate(-50%, -50%);
+                                transform: translate(-50%, -50%);
+                                img {
+                                    position: absolute;
+                                    top: 0;
+                                    left: 0;
+                                    width: 100%;
+                                    height: 100%;
+                                    object-fit: cover;
+                                    padding: 10px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

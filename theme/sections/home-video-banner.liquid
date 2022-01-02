@@ -1,0 +1,45 @@
+{%- comment -%} home video section{%- endcomment -%}
+<div class="home-video-warpper">
+    <div class="video">
+        <video width="100%" height="100%"   autoplay="autoplay" muted loop playsinline>
+            <source src={{section.settings.home_video_desktop}} type="video/mp4">
+          </video>
+    </div>
+      <a href={{section.settings.home_video_btn_link}} class="home-video-btn-wrapper">{{section.settings.home_video_btn_text}}</a>
+</div>
+
+
+{% schema %}
+{
+  "name": "home video",
+  "settings": [
+  {
+      "type": "text",
+      "id": "home_video_desktop",
+      "label": "Video for desktop"
+  },
+  {
+    "type": "text",
+    "id": "home_video_mobile",
+    "label": "Video for mobile"
+  },  
+  {
+        "type": "text",
+        "id": "home_video_btn_text",
+        "label": "Button label"
+    },
+    {
+        "type": "collection",
+        "id": "home_video_btn_link",
+        "label": "Button URL"
+    } 
+  ],
+  "presets": [
+    {
+      "name": "Home page - video",
+      "category": "Video"
+    }
+  ]
+}
+
+{% endschema %}
