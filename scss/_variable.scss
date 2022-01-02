@@ -1,0 +1,71 @@
+/*================ Font-family ================*/
+$head_font: var(--main-header-font);
+$base_font: var(--main-body-font);
+$base_font_size: var(--base-font-size);
+@media (max-width: 767px) {
+ $base_font_size: var(--base-font-size-mob);
+}
+
+/*================ Color ================*/
+$body_background_color: var(--body_background_color);
+$anchor_tag_color: var(--anchor_tag_color);
+$anchor_tag_hover_color: var(--anchor_tag_hover_color);
+$accent_color: var(--accent_color);
+$support_background_color: #efefef;
+$home_newsletter_border_color: #616161;
+
+/*================ Button colors ================*/
+$btn_color: #ffffff;
+$btn_color_new: #ffffff;
+$btn_color_tag: #0086ff;
+$btn_font_color: #d575d1;
+$btn_background_color: #0086ff;
+$btn_background_color_new: #0086ff;
+
+/*================ Grid ================*/
+$site_width_lg: 1400;
+$site_width_md: 1200;
+$site_width_sm: 1023;
+$site_width_xs: 767;
+
+/*================ Table color ================*/
+$thead_background: #f7f6f9;
+$th_font_color: #fff;
+$row_background_color: #f5f5f5;
+$row_hover_color: #f2f2f2;
+$table_border_color: #ddd;
+
+/*================ Slider ================*/
+$slider_color: #fff;
+
+/*================ Product grid ================*/
+$sale_color: var(--sale_color);
+$sold_color: var(--sold_color);
+
+/*================ Header ================*/
+$header_background: var(--header_background);
+$header_font-color: var(--header_font-color);
+
+/*=========== FORM ===========*/
+$form-area-background : #f6f6f6;
+/*================ content ================*/
+
+$home-banner-bg: #edf4d1;
+$color-black: #000000;
+$color-white: #ffffff;
+$color-red: #ed1c24;
+$header-title-h2: #a8c367;
+$brand-title: #7fc1bc;
+$brand-bg: #f7f7f7;
+$color-pink: #d575d1;
+$common-border: 1px solid rgba(151, 151, 151, 0.25);
+$small-font-size: 14px;
+$grey-color: #979797;
+$light-black-color: #1e1e1e;
+$light--gray-color : #f6f5f5;
+
+$cart-input-background-color:#ffffff;
+
+$btn-background:#505af0;
+
+$wheel-spin-text:var(--wheel_text_color)

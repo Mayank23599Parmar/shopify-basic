@@ -1,0 +1,41 @@
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="">
+<link rel="canonical" href="{{ canonical_url }}">
+{% if settings.favicon != blank %}
+  <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
+{% endif %}
+{%- comment -%}Pre connects{%- endcomment -%}
+<link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+<link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
+{%- comment -%}Pre loads{%- endcomment -%}
+<link title="theme" rel="preload" href="{{ 'simply.css' | asset_url }}" as="style">
+<title>
+  {{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
+</title>
+{% if page_description %}
+<meta name="description" content="{{ page_description | escape }}">
+{% endif %}
+{% render 'main-css' %}
+<noscript><link rel="stylesheet" href="{{ 'simply.css' | asset_url }}"></noscript>
+<script>
+  window.simply = window.simply || {};
+  window.cn = function (o) { return "undefined" == typeof o || null == o || "" == o.toString().trim() };
+  window.cb = function (o) { if (o == 'true') { return true } else { return false } };
+  simply.money_format = "{{ shop.money_format }}";
+  simply.translations = {
+    addToCart: {{ 'products.product.add_to_cart' | t | json }},
+  soldOut: {{ 'products.product.sold_out' | t | json }},
+  unavailable: {{ 'products.product.unavailable' | t | json }}
+    };
+    
+</script>
+{%- comment -%} use for seo and marketing 
+
+{% render 'micro-data-schema' %}
+{%- endcomment -%}
+
+
+{%- comment -%}Content for header{%- endcomment -%}
+{{ cfh | replace:'<script','<script defer="defer" ' }}

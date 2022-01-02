@@ -1,0 +1,362 @@
+<style>
+    {%- assign header_font = settings.type_header_family -%}
+    {%- assign base_font = settings.type_base_family -%}
+    {{header_font | font_face: font_display: 'swap'}}
+    {{base_font | font_face: font_display: 'swap'}}
+    {%- assign base_font_bold = base_font | font_modify: 'weight', 'bolder' -%}
+  
+    :root{
+      /*================  Fonts ================*/
+      --main-header-font:{{header_font.family}},{{header_font.fallback_families}};
+      --main-body-font:{{base_font.family}},{{base_font.fallback_families}};
+      --base-font-size:14px;
+  
+      /*================  Color ================*/
+      --body_background_color:{{settings.body_background_color}};
+      --accent_color:{{settings.accent_color}};
+      --font_color: {{settings.font_color}};
+      --header_color: {{settings.heading_font_color}};
+      --anchor_tag_color:{{settings.anchor_tag_color}};
+      --anchor_tag_hover_color:{{settings.anchor_tag_hover_color}};
+  
+      /*================ Button color ================*/
+      --btn_color : {{settings.btn_color}};
+      --btn_hover_color : {{settings.btn_hover_color}};
+      --btn_disabled_color:  {{settings.btn_disabled_color}};
+      --btn_font_color : {{settings.btn_font_color}};
+      --btn_font_hover_color : {{settings.btn_font_hover_color}};
+      --btn_border_color : {{settings.btn_border_color}};
+      --btn_border_hover_color : {{settings.btn_border_hover_color}};
+  
+      --btn_color_second : {{settings.btn_color_second}};
+      --btn_hover_color_second  : {{settings.btn_hover_color_second}};
+      --btn_font_color_second  : {{settings.btn_font_color_second}};
+      --btn_font_hover_color_second  : {{settings.btn_font_hover_color_second}};
+      --btn_border_color_second : {{settings.btn_border_color_second}};
+      --btn_border_color_hover_second : {{settings.btn_border_color_hover_second}};
+  
+      /*================ Header color ================*/
+      --header_background : {{settings.header_background}};
+      --menu_link_color : {{settings.menu_link_color}};
+      --menu_link_hover_color : {{settings.menu_link_hover_color}};
+  
+      /*================ Top Bar ===================*/
+      --top_bar_background : {{settings.top_bar_background}};
+      --top_bar_text: {{settings.top_bar_text}};
+      --top_bar_link: {{settings.top_bar_link}};
+  
+      /*================ Section schema color ================*/
+      --section_light_color_bg:{{settings.section_light_color_bg}};
+      --section_light_color_text:{{settings.section_light_color_text}};
+      --section_dark_color_bg:{{settings.section_dark_color_bg}};
+      --section_dark_color_text:{{settings.section_dark_color_text}};
+  
+      /*================ Footer color ================*/
+      --footer_background : {{settings.footer_background}};
+      --footer_header_color : {{settings.footer_header_color}};
+      --footer_text_color : {{settings.footer_text_color}};
+      --footer_link_color : {{settings.footer_link_color}};
+      --footer_link_hover_color : {{settings.footer_link_hover_color}};
+      --footer_border_color:{{settings.footer_border_color}};
+    }
+  
+  /*================ variables ================*/
+  html, body, div, span, applet, object, iframe,
+    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+    a, abbr, acronym, address, big, cite, code,
+    del, dfn, em, img, ins, kbd, q, s, samp,
+    small, strike, strong, sub, sup, tt, var,
+    b, u, i, center,
+    dl, dt, dd, ol, ul, li,
+    fieldset, form, label, legend,
+    table, caption, tbody, tfoot, thead, tr, th, td,
+    article, aside, canvas, details, embed, 
+    figure, figcaption, footer, header, hgroup, 
+    menu, nav, output, ruby, section, summary,
+    time, mark, audio, video {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      vertical-align: baseline;
+      word-wrap: break-word;
+    }
+  html,body{
+      background-color : var(--body_background_color);
+    }
+    body {
+      line-height: 1.3;
+      font-family:var(--main-body-font);
+      font-size:var(--base-font-size);
+    }
+    a{
+      text-decoration: none;
+      color:var(--anchor_tag_color);
+      line-height:inherit;
+      cursor: pointer;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    @media(min-width: 1025px){
+      a:hover{
+        color:var(--anchor_tag_hover_color);
+      }
+    }
+    p,li{
+      color:var(--font_color);
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    p{
+      margin-bottom: 15px;
+    }
+    h1, h2, h3, h4, h5, h6{
+      color:var(--header_color);
+      margin-bottom:15px;
+      font-family: var(--main-header-font);
+    }
+  
+    /*================ Reset css ================*/
+    *{
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: rgba(0,0,0,0);
+      -moz-tap-highlight-color: rgba(0,0,0,0);
+      -ms-tap-highlight-color: rgba(0,0,0,0);
+      -o-tap-highlight-color: rgba(0,0,0,0);
+    }
+    ::selection {
+      background: #ffc8b3;
+    }
+    
+    article, aside, details, figcaption, figure, 
+    footer, header, hgroup, menu, nav, section {
+      display: block;
+    }
+    h1 {
+      font-size: 30px;
+    }
+    h2 {
+      font-size: 28px;
+    }
+    h3 {
+      font-size: 24px;
+    }
+    h4 {
+      font-size: 22px;
+    }
+    h5 {
+      font-size: 18px;
+    }
+    h6 {
+      font-size: 16px;
+    }
+    @media (max-width: 767px) {
+      h1 {
+        font-size:22.5px
+      }
+      h2 {
+        font-size:21.84px
+      }
+      h3 {
+        font-size:20.54px
+      }
+      h4 {
+        font-size:19.2px
+      }
+      h5 {
+        font-size:16.4px
+      }
+      h6 {
+        font-size:14.45px
+      }
+    }
+    i{
+      font-style: initial;
+    }
+    small {
+      font-size: 75%;
+    }
+    img {
+      vertical-align: middle;
+      max-width:100%;
+    }
+    .img-responsive {
+      max-width: 100%;
+      height: auto;
+      width: 100%;
+    }
+    .text-center{
+      text-align: center;
+    }
+    .text-left{
+      text-align: left;
+    }
+    .text-right{
+      text-align: right;
+    }
+    .lazyloaded{
+      width:100%;
+      height:auto;
+    }
+    .img_load{
+      filter:blur(7px);
+      -webkit-filter:blur(7px);
+      -moz-filter:blur(7px);
+      -o-filter:blur(7px);
+    }
+    b,strong,.bold{
+      font-weight:bold;
+    }
+    hr{
+      clear: both;
+      content: "";
+      margin: 15px 0px;
+    }
+    s{
+      color:red;
+    }
+    ul {
+      list-style: none;
+    }
+    blockquote, q {
+      quotes: none;
+    }
+    blockquote:before, blockquote:after,
+    q:before, q:after {
+      content: '';
+      content: none;
+    }
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
+    .video-wrapper{
+      position: relative;
+      overflow: hidden;
+      max-width: 100%;
+      padding-bottom: 56.25%;
+      height: auto;
+    }
+    .video-wrapper iframe{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      max-width:100%;
+    }
+    .v_hide{
+      visibility:hidden;
+    }
+    .visually-hidden, .hide{
+      display:none;
+    }
+  
+    @media (min-width: 768px) {
+      .xs-show {
+       display: none;
+     }
+   }
+   @media (max-width: 767px) {
+    .xs-center {
+     text-align: center;
+   }
+   .xs-right {
+     text-align: right;
+   }
+   .xs-left {
+     text-align: left;
+   }
+   .xs-hide {
+     display: none;
+   }
+  }
+  @media (max-width: 1024px) {
+    .sm-center {
+     text-align: center;
+   }
+   .sm-left {
+     text-align: left;
+   }
+   .sm-right {
+     text-align: right;
+   }
+   .sm-hide {
+     display: none;
+   }
+  }
+  .relative{
+    position:relative;
+  }
+  
+  /*================ Form ================*/
+  select{
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' stroke='rgba(33,43,54,0.999)' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-color: transparent;
+    background-size: 18px;
+    padding: 10px 28px 10px 0px;
+    text-indent: 5px;
+    font-size: var(--base_font_size);
+  }
+  input{
+    font-size: var(--base_font_size);
+  }
+  /*================ Button ================*/
+  button ,.btn{
+    border-radius:{{settings.btn_style}};
+  }
+  button[type="button"].shopify-payment-button__button{
+    border-radius:{{settings.btn_style}};
+  }
+  
+  .btn {
+    background: var(--btn_color);
+    color: var(--btn_font_color);
+    border: 1px solid var(--btn_border_color);
+    padding: 15px 36px;
+    font-size: var(--base-font-size);
+  }
+  @media (min-width: 1025px) {
+    .btn:hover {
+      background: var(--btn_hover_color);
+      color: var(--btn_font_hover_color);
+      border: 1px solid var(--btn_border_hover_color);
+    }
+  }
+  .btn.second,
+  .shopify-payment-button__button,
+  button[type="button"].shopify-payment-button__button {
+    background: var(--btn_color_second);
+    color: var(--btn_font_color_second);
+    border: 1px solid var(--btn_border_color_second);
+    padding: 15px 36px;
+    font-size: var(--base-font-size);
+  }
+  @media (min-width: 1025px) {
+    .btn.second:hover,
+    .shopify-payment-button__button:hover,
+    button[type="button"].shopify-payment-button__button:hover {
+      background: var(--btn_hover_color_second);
+      color: var(--btn_font_hover_color_second);
+      border: 1px solid var(--btn_border_color_hover_second);
+    }
+  }
+  .btn.full {
+    width: 100%;
+  }
+  .btn.margin {
+    margin-bottom: 10px;
+  }
+  .btn.disabled {
+    background: var(--btn_disabled_color);
+  }
+  @media (min-width: 1025px) {
+    .btn.disabled:hover {
+      background: var(--btn_disabled_color);
+      color: var(--btn_font_color);
+    }
+  }
+  </style>

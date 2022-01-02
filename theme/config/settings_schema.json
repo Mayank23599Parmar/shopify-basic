@@ -1,0 +1,328 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Section plus",
+    "theme_author": "Lucent innovation",
+    "theme_version": "2.0.0",
+    "theme_documentation_url": "https://lucentinnovation.com/",
+    "theme_support_url": "https://lucentinnovation.com/"
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "color",
+        "label": "Body background",
+        "default": "#fff",
+        "id": "body_background_color"
+      },
+      {
+        "type": "color",
+        "label": "Accent",
+        "default": "#000",
+        "id": "accent_color"
+      },
+      {
+        "type": "color",
+        "label": "Text",
+        "id": "font_color",
+        "default": "#000"
+      },
+      {
+        "type": "color",
+        "label": "Heading text",
+        "default": "#000",
+        "id": "heading_font_color"
+      },
+      {
+        "type": "color",
+        "id": "anchor_tag_color",
+        "label": "Link",
+        "default": "#233445"
+      },
+      {
+        "type": "color",
+        "id": "anchor_tag_hover_color",
+        "label": "Link hover",
+        "default": "#f05d7c"
+      },
+      {
+        "type": "header",
+        "content": "Top Bar"
+      },
+      {
+        "type": "color",
+        "id": "top_bar_background",
+        "label": "Topbar background",
+        "default": "#4ecdbc"
+      },
+      {
+        "type": "color",
+        "id": "top_bar_text",
+        "label": "Topbar text",
+        "default": "#fff"
+      },
+      {
+        "type": "color",
+        "id": "top_bar_link",
+        "label": "Topbar link",
+        "default": "#e43535"
+      },
+      {
+        "type":"header",
+        "content":"Color schemes",
+        "info":"Set color schemes for options 'Light' and 'Dark' here."
+      },
+      {
+        "type":"color",
+        "id":"section_light_color_bg",
+        "label":"Light background",
+        "default":"#f3f3f3"
+      },
+      {
+        "type":"color",
+        "id":"section_light_color_text",
+        "label":"Light text",
+        "default":"#000000"
+      },
+      {
+        "type":"color",
+        "id":"section_dark_color_bg",
+        "label":"Dark background",
+        "default":"#2d2d2d"
+      },
+      {
+        "type":"color",
+        "id":"section_dark_color_text",
+        "label":"Dark text",
+        "default":"#ffffff"
+      }, 
+      {
+        "type": "header",
+        "content": "Header"
+      },
+      {
+        "type": "color",
+        "label": "Header Background color",
+        "id": "header_background",
+        "default": "#fff"
+      },
+      {
+        "type": "header",
+        "content": "Main navigation"
+      },
+      {
+        "type": "color",
+        "label": "Link color",
+        "id": "menu_link_color",
+        "default": "#fff"
+      },
+      {
+        "type": "color",
+        "label": "Link hover color",
+        "id": "menu_link_hover_color",
+        "default": "#fff"
+      },
+      {
+        "type": "header",
+        "content": "Button color"
+      },
+      {
+        "type": "select",
+        "id": "btn_style",
+        "label": "Choose Button Style",
+        "options": [
+          {
+            "value": "0px",
+            "label": "Square"
+          },
+          {
+            "value": "2px",
+            "label": "Rounded"
+          },
+          {
+            "value": "100px",
+            "label": "Pill Shaped"
+          }
+        ]
+      },
+      {
+        "type": "color",
+        "id": "btn_color",
+        "default": "#7b9f5d",
+        "label": "Primary button color"
+      },
+      {
+        "type": "color",
+        "id": "btn_hover_color",
+        "default": "#729258",
+        "label": "Primary button hover color"
+      },
+      {
+        "type": "color",
+        "id": "btn_font_color",
+        "default": "#000",
+        "label": "Primary button font color"
+      },
+      {
+        "type": "color",
+        "id": "btn_font_hover_color",
+        "default": "#ddd",
+        "label": "Primary button font hover color"
+      },
+      {
+        "type": "color",
+        "id": "btn_border_color",
+        "default": "#000",
+        "label": "Primary button border color"
+      },
+      {
+        "type": "color",
+        "id": "btn_border_hover_color",
+        "default": "#000",
+        "label": "Primary button border hover color"
+      },
+      {
+        "type": "color",
+        "id": "btn_color_second",
+        "default": "#7b9f5d",
+        "label": "Secondary button color"
+      },
+      {
+        "type": "color",
+        "id": "btn_hover_color_second",
+        "default": "#729258",
+        "label": "Secondary button hover color"
+      },
+      {
+        "type": "color",
+        "id": "btn_font_color_second",
+        "default": "#000",
+        "label": "Secondary button font color"
+      },
+      {
+        "type": "color",
+        "id": "btn_font_hover_color_second",
+        "default": "#ddd",
+        "label": "Secondary button font hover color"
+      },
+      {
+        "type": "color",
+        "id": "btn_border_color_second",
+        "default": "#000",
+        "label": "Secondary button border color"
+      },
+      {
+        "type": "color",
+        "id": "btn_border_color_hover_second",
+        "default": "#000",
+        "label": "Secondary button border hover color"
+      },
+      {
+        "type": "color",
+        "id": "btn_disabled_color",
+        "default": "#999",
+        "label": "Disabled button color"
+      },
+      {
+        "type": "header",
+        "content": "Footer"
+      },
+      {
+        "type": "color",
+        "id": "footer_background",
+        "default": "#fff",
+        "label": "Footer background-color"
+      },
+      {
+        "type": "color",
+        "id": "footer_header_color",
+        "default": "#000",
+        "label": "Footer header color"
+      },
+      {
+        "type": "color",
+        "id": "footer_text_color",
+        "default": "#000",
+        "label": "Footer text color"
+      },
+      {
+        "type": "color",
+        "id": "footer_link_color",
+        "default": "#999",
+        "label": "Footer link color"
+      },
+      {
+        "type": "color",
+        "id": "footer_link_hover_color",
+        "default": "#000",
+        "label": "Footer link hover color"
+      },
+      {
+        "type": "color",
+        "id": "footer_border_color",
+        "default": "#eee",
+        "label": "Footer text border color"
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Headings"
+      },
+      {
+        "type": "font_picker",
+        "label": "Header font",
+        "id": "type_header_family",
+        "default": "monotype_baskerville_n4"
+      },
+      {
+        "type": "header",
+        "content": "Body text"
+      },
+      {
+        "type": "font_picker",
+        "id": "type_base_family",
+        "label": "Body font",
+        "default": "avenir_next_n4"
+      }
+    ]
+  },
+  {
+    "name": "Favicon",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon image",
+        "info": "Will be scaled down to 32 x 32px"
+      }
+    ]
+  },
+  {
+    "name": "Multi currency",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_multiple_currencies",
+        "label": "Enable multi currency",
+        "default": false,
+        "info": "Please enable multicurrency using this [URL](https://help.shopify.com/en/manual/payments/shopify-payments/multi-currency/setup)"
+      }
+    ]
+  },
+  {
+    "name": "Image blur effect",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "image_blur",
+        "label":"Enable",
+        "default":true
+      }
+    ]
+  }
+]
