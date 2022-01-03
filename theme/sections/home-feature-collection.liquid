@@ -49,8 +49,11 @@
           {%- comment -%}
           collection descriptions
           {%- endcomment -%}
+          {%- assign productTitle = collection.products[0].metafields.product.productdec -%}
           <div  class="collection-dec">
             <a class="title" href="products/{{collection.products[0].handle}}">{{collection.title}}</a>
+            <p class="productDec">{{productTitle}}</p>
+            <p class="price"> {{ collection.products[0].price | money_with_currency }}</p>
           </h5>
         </li>
       {% endfor %}
