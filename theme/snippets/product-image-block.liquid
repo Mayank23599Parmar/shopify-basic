@@ -1,0 +1,22 @@
+<div class="ProductImages">
+    <ul class="list">
+      {% for image in product.images %}
+        <li class="id_{{image.id}} single-image" data-index="{{forloop.index}}">
+          <div class="img">
+            {%- render 'srcset',src_name:image.src,src_alt:image.alt,src_class:'product-image' -%}
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+    <div class="thumb-block">
+      {%- if product.images.size > 1 -%}
+        <div class="thumb">
+          {% for image in product.images %}
+            <div class="single-thumb">
+              {%- render 'srcset',src_name:image.src,src_alt:image.alt,src_class:'product-image' -%}
+            </div>
+          {% endfor %}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>

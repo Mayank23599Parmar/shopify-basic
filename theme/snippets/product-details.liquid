@@ -1,0 +1,59 @@
+<div class="product-detail">
+    <h2>{{product.title}}</h2>
+    <div class="product-description">
+        <p class="product-sku">{{ product.selected_or_first_available_variant.sku}}</p>
+        <p class="product-dec">{{product.description}}</p>
+        <div class="product-option-selctor-variant">
+            {% unless product.variants[0].title == 'Default Title' %}
+            {% for option in product.options %}
+            {% assign swatch = option %}
+            {% render 'product-swatches',swatch:swatch %}
+            {% endfor %}
+            {% endunless %}
+            <div class="product-form">
+                <div
+                    class="option-box{% if product_swatch %}{% endif %} {% if product.variants[0].title == 'Default Title' %} hide{% endif %}">
+                    {% for option in product.options_with_values %}
+                    <div class="radio-wrapper">
+                        <label
+                            class="label-box {% if option.name == 'Default' or option.name == 'Title' %} hidden-label{% endif %}"
+                            for="ProductSelect-option-{{ forloop.index0 }}">
+                            {{ option.name | escape }}
+                        </label>
+                        {%- comment -%} single varint selectot likie color and size{%- endcomment -%}
+                        <select class="single-option-selector single-option-selector-{{ section.id }}"
+                            data-index="option{{ forloop.index }}" id="SingleOptionSelector-{{ forloop.index0 }}">
+                            {% for value in option.values %}
+                            <option value="{{ value | escape }}" {% if option.selected_value==value %}
+                                selected="selected" {% endif %}>{{ value | escape }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    {% endfor %}
+                </div>
+                {%- comment -%} main varint selecter {%- endcomment -%}
+                <select name="id" data-productid="{{product.id}}" class="single-variants">
+                    {% for variant in product.variants %}
+                    {% if variant.available %}
+                    <option {% if variant==product.selected_or_first_available_variant %} selected="selected" {% endif
+                        %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }}
+                        -
+                        {{ variant.price | money_with_currency }}</option>
+                    {% else %}
+                    <option {% unless hide_sold %} disabled="disabled" {% endunless %}>
+                        {{ variant.title }}
+                        -
+                        {{ 'products.product.sold_out' | t }}
+                    </option>
+                    {% endif %}
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="product-add-buy-wrapper">
+        <button class="add-to-cart">Add to cart</button>
+        <button class="btn add-to-cart">Buy now</button>
+    </div>
+    {%- render "product-json" -%}
+</div>

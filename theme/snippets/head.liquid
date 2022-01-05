@@ -4,13 +4,15 @@
 <meta name="theme-color" content="">
 <link rel="canonical" href="{{ canonical_url }}">
 {% if settings.favicon != blank %}
-  <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
+<link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
 {% endif %}
 {%- comment -%}Pre connects{%- endcomment -%}
 <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
 <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
 <title>
-  {{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
+  {{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags'
+  | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page
+  }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
 </title>
 {% if page_description %}
 <meta name="description" content="{{ page_description | escape }}">
@@ -24,12 +26,12 @@
   simply.money_format = "{{ shop.money_format }}";
   simply.translations = {
     addToCart: {{ 'products.product.add_to_cart' | t | json }},
-  soldOut: {{ 'products.product.sold_out' | t | json }},
-  unavailable: {{ 'products.product.unavailable' | t | json }}
+  soldOut: { { 'products.product.sold_out' | t | json } },
+  unavailable: { { 'products.product.unavailable' | t | json } }
     };
-    
+
 </script>
-{%- comment -%} use for seo and marketing 
+{%- comment -%} use for seo and marketing
 
 {% render 'micro-data-schema' %}
 {%- endcomment -%}
