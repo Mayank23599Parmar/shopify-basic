@@ -1,0 +1,218 @@
+#product-page {
+    .product-template {
+        .product-details-wrapper {
+            padding-left: 30px;
+            position: relative;
+            width: 100%;
+            height: 100%;
+            @include mq('phone'){
+                padding: 0;
+            }
+            .product-detail {
+                .product-title {
+                    padding-bottom: 10px;
+                    border-bottom: 1px solid #333;
+                    font-size: 40px;
+                    font-family: "Yeseva One", serif;
+                    letter-spacing: 0.05em;
+                    text-transform: uppercase;
+                    @include mq("phone") {
+                        font-size: 30px;
+                    }
+                }
+                //product description
+                .product-description {
+                    .product-sku {
+                        color: #888;
+                        font-size: 10px;
+                        margin-bottom: 15px;
+                    }
+                    .product-dec {
+                        margin-bottom: 20px;
+                        font-size: 14px;
+                        font-weight: 300;
+                        color: #888;
+                        font-style: italic;
+                        @include mq("phone") {
+                            margin-bottom: 15px;
+                            font-size: 12px;
+                        }
+                    }
+
+                    // variant selector section
+                    .product-option-selctor-variant {
+                        .swatches {
+                            .swatch {
+                                margin-bottom: 20px;
+                                .swatch_title {
+                                    margin-bottom: 10px;
+                                    font-weight: 700;
+                                    font-size: 20px;
+                                    color: $color-black;
+                                    @include mq("phone") {
+                                        font-size: 18px;
+                                    }
+                                }
+                                .swatch-element {
+                                    display: inline-block;
+                                    margin: 0 10px 10px 0;
+                                    padding: 10px 15px;
+                                    border: 1px solid $color-black;
+                                    opacity: 1;
+                                    transition-duration: 0.5s;
+                                    cursor: pointer;
+                                    background-color: $color-white;
+                                    &.active {
+                                        background-color: $color-black;
+                                        border: 1px solid $color-black;
+                                        span {
+                                            color: $color-white;
+                                        }
+                                    }
+                                    span {
+                                        color: $color-black;
+                                        font-size: 20px;
+                                        letter-spacing: 1.5px;
+                                        cursor: pointer;
+                                        font-weight: 500;
+                                        @include mq("phone") {
+                                            font-size: 18px;
+                                            letter-spacing: 1px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    //product-price{
+                    .product-price {
+                        p {
+                            font-size: 18px;
+                            font-weight: 700;
+                            color: $color-black;
+                        }
+                    }
+                }
+                //add to cart and buy now button
+                .product-add-buy-wrapper{
+                    @include flexbox();
+                    @include align-items("center");
+                    @include justify-content(space-between);
+                    position: absolute;
+                    bottom: 0;
+                    width: 100%;
+                    gap: 20px;
+                    grid-gap: 20px;
+                    .add-to-cart {
+                        text-align: left;
+                        font-size: 20px; 
+                        cursor: pointer;
+                        @include mq("phone") {
+                            font-size: 14px;
+                        }
+                    }
+                    .buy-now{
+                        text-align: left;
+                        font-size: 20px; 
+                        cursor: pointer;
+                        @include mq("phone") {
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
+}
+ // home page collection list
+ .related-product-list {
+    padding: 30px 15px 0 15px;
+    .title{
+        margin: 100px 0 50px;
+        font-size: 20px;
+        font-weight: 500;
+        @include mq("phone"){
+            margin: 60px 0 30px;
+        }
+    }
+    .scroll-ul {
+        .li {
+            
+            .collection-image-warpper {
+                position: relative;
+                padding: 10% 10% 4.5%;
+                background: none;
+                .product-img-frame {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    height: 75%;
+                    width: 100%;
+                    background: #888;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+                .image {
+                    position: relative;
+                    padding-top: 133%;
+                    width: auto;
+                    a {
+                        .img {
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            width: 107%;
+                            height: 107%;
+                            border: 0.25em solid #000;
+                            -webkit-transform: translate(-50%, -50%);
+                            transform: translate(-50%, -50%);
+                            img {
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                width: 100%;
+                                height: 100%;
+                                object-fit: cover;
+                                padding: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .collection-dec {
+                padding: 15px 0 20px 20px;
+                @include mq("phone"){
+                    padding: 10px 0;
+                }
+                .title {
+                    margin-bottom: 5px;
+                    font-size: 14px;
+                    font-family: "Yeseva One", serif;
+                    font-weight: 900;
+                    text-transform: uppercase;
+                    letter-spacing: 0.1em;
+                    @include mq("phone") {
+                        font-size: 12px;
+                    }
+                }
+                .productDec {
+                    color: #333;
+                    font-size: 10px;
+                    text-transform: uppercase;
+                    letter-spacing: 0.2em;
+                    margin-bottom: 0px;
+                }
+                .price {
+                    margin-top: 10px;
+                    font-weight: 700;
+                    font-size: 13px;
+                }
+            }
+        }
+    }
+}

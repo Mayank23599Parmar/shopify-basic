@@ -47,27 +47,42 @@ export const formatMoney = function (t, e = simply.money_format) {
 
 export const findSiblings = (element) => {
   let siblings = [],
-  node = element.parentNode.firstChild;
-    while ( node ) {
-        if ( node !== element && node.nodeType === Node.ELEMENT_NODE ) 
-        siblings.push( node );
-        node = node.nextElementSibling || node.nextSibling;
-    }
-    return siblings;
+    node = element.parentNode.firstChild;
+  while (node) {
+    if (node !== element && node.nodeType === Node.ELEMENT_NODE)
+      siblings.push(node);
+    node = node.nextElementSibling || node.nextSibling;
+  }
+  return siblings;
 }
 
-export const removeClassFromElements = (items,className) =>{
-  items.forEach((item)=>{
-      item.classList.remove(className);
+export const removeClassFromElements = (items, className) => {
+  items.forEach((item) => {
+    item.classList.remove(className);
   });
 }
 
 export const handleize = e => {
   return e.toLowerCase().replace(/[^\w\u00C0-\u024f]+/g, "-").replace(/^-+|-+$/g, "")
 }
-export const param = (data) =>{
-  let url = Object.keys(data).map(function(k) {
+export const param = (data) => {
+  let url = Object.keys(data).map(function (k) {
     return encodeURIComponent(k) + '=' + encodeURIComponent(data[k])
   }).join('&');
   return url;
-} 
+}
+
+/* Add to Cart */
+export const addToCart = async (data, cb = undefined) => {
+  let res = await fetch('/cart/add.js', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  });
+  res = await res.json();
+  if (cb) {
+    cb();
+  }
+}

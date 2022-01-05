@@ -58,6 +58,14 @@ class VariantSelector {
             }
         }
     }
+     getVarintInfo=()=>{
+        const that = this;
+        let variant = that.variant;
+        if(variant)
+        {
+            return variant
+        }
+     }
     productCallback() {
         const that = this;
         let variant = that.variant;

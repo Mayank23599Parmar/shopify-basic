@@ -1,5 +1,6 @@
+{% assign current_variant = product.selected_or_first_available_variant %}
 <div class="product-detail">
-    <h2>{{product.title}}</h2>
+    <h2 class="product-title">{{product.title}}</h2>
     <div class="product-description">
         <p class="product-sku">{{ product.selected_or_first_available_variant.sku}}</p>
         <p class="product-dec">{{product.description}}</p>
@@ -10,7 +11,7 @@
             {% render 'product-swatches',swatch:swatch %}
             {% endfor %}
             {% endunless %}
-            <div class="product-form">
+            <div class="product-form hide">
                 <div
                     class="option-box{% if product_swatch %}{% endif %} {% if product.variants[0].title == 'Default Title' %} hide{% endif %}">
                     {% for option in product.options_with_values %}
@@ -50,10 +51,14 @@
                 </select>
             </div>
         </div>
+        <div class="product-price">
+           <p> {{ current_variant.price | money_with_currency }}</p>
+
+        </div>
     </div>
     <div class="product-add-buy-wrapper">
-        <button class="add-to-cart">Add to cart</button>
-        <button class="btn add-to-cart">Buy now</button>
+        <button class="btn  full add-to-cart">Add to cart</button>
+        <button class="btn  full buy-now">Buy now</button>
     </div>
     {%- render "product-json" -%}
 </div>

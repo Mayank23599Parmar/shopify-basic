@@ -1,6 +1,6 @@
 
 import VariantSelector from './variantSelector';
-import { findSiblings } from './helper';
+import { findSiblings ,addToCart} from './helper';
 class Product {
     constructor(parent) {
         if (!parent) {
@@ -61,6 +61,35 @@ class Product {
                 this.productSwatchAction(e.currentTarget, true);
             })
         })
+        let variant=this.variantSelector.getVarintInfo()
+        let formData;
+        // add to cart action
+        let addTocartButton= document.querySelector(".add-to-cart")
+        addTocartButton.addEventListener("click",(element)=>{
+             formData={
+                quantity:1,
+                id:variant.id
+
+            }
+            addTocartButton.innerText = "Adding..."
+            addToCart(formData,()=>{
+                addTocartButton.innerText="Add to cart"
+            })
+        })
+        //produt buy now button action
+        let ProductBuyNow= document.querySelector(".buy-now")
+        ProductBuyNow.addEventListener("click",(element)=>{
+                formData={
+                quantity:1,
+                id:variant.id
+
+            }
+            ProductBuyNow.innerText = "Adding..."
+            addToCart(formData,()=>{
+                addTocartButton.innerText="Add to cart";
+                window.location.href="/checkout"
+            })
+        })
     }
     changeEvent = () => {
         const parent = this.parent;
@@ -70,14 +99,14 @@ class Product {
                 this.variantSelector.selectChange();
             })
         });
-    }
+        
+    }    
     init = () => {
         this.initiateProductVariant();
         this.clickEvent();
         this.changeEvent();
     }
 }
-
 if (document.getElementById('product-page')) {
     new Product('#product-page');
 }

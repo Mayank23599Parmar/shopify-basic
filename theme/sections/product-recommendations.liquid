@@ -1,0 +1,115 @@
+
+{% assign recommendation_products = product.metafields.products.product_recomendation | split:',' %}
+{% case section.settings.width %}
+  {% when 2 %}
+    {%- assign width = "col-sm-6" -%}
+  {% when 3 %}
+    {%- assign width = "col-sm-4" -%}
+  {% else %}
+    {%- assign width = "col-sm-3" -%}
+{% endcase %}
+
+{%- case section.settings.width_xs -%}
+  {%- when 1 -%}
+  {%- assign width_xs = "col-xs-12" -%}
+  {%- when 2 -%}
+  {%- assign width_xs = "col-xs-6" -%}
+  {%- else -%}
+  {%- assign width_xs = "col-xs-4" -%}
+{%- endcase -%}
+<div class="related-product-list collection-list-{{section.id}} ">
+  <div class="{% if section.settings.full %}container-fluid{% else %}container{% endif %}">
+      <h4 class=" title text-center">{{section.settings.title}}</h4>
+    <ul class="flex-view space list scroll-ul">
+      {%- for product_handel in recommendation_products -%}
+        {%- assign products = all_products[product_handel] -%}
+        {% if products != blank %}
+            
+        
+        <li class="li {{width}} {{width_xs}}">
+          <div class="collection-image-warpper">
+            <div class="product-img-frame">
+              {%- render 'srcset', src_name:section.settings.Products_bg_img,src_alt:products.title -%}
+            </div>
+            <div class="image">
+              <a href="../products/{{products.handle}}">
+                {%- assign src_name = products.image -%}
+                {%- if src_name == blank -%}
+                  {%- assign src_name =products.featured_image.src -%}
+                {%- endif -%}
+                {%- if src_name == blank -%}
+                  {{ 'collection-' | append: forloop.index | placeholder_svg_tag: 'placeholder-svg' }}
+                {%- else -%}
+                  <div class="img">
+                    {%- render 'srcset', src_name:src_name,src_alt:product.title -%}
+                  </div>
+                {%- endif -%}
+              </a>
+             
+            </div>
+            
+          </div>
+          {%- comment -%}
+          collection descriptions
+          {%- endcomment -%}
+          {%- assign productTitle = products[0].metafields.product.productdec -%}
+          <div  class="collection-dec">
+            <a class="title" href="products/{{products.handle}}">{{products.title}}</a>
+            <p class="productDec">{{productTitle}}</p>
+            <p class="price"> {{ products.price | money_with_currency }}</p>
+          </h5>
+        </li>
+        {% endif %}
+      {% endfor %}
+     
+    </ul>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Product Recomendation",
+  "settings": [
+  {
+    "type": "checkbox",
+    "label": "Full-width",
+    "id": "full"
+  },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Collection List"
+    },
+    {
+      "type": "range",
+      "id": "width",
+      "label": "Products per row for desktop",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "width_xs",
+      "label": "Products per row for mobile",
+      "min": 1,
+      "max": 3,
+      "step": 1,
+      "default": 2
+    },
+    {
+        "type": "image_picker",
+        "id": "Products_bg_img",
+        "label": "Products Background Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Recomendation",
+      "category": "product"
+    }
+    ]
+}
+{% endschema %}
