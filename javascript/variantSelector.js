@@ -76,6 +76,10 @@ class VariantSelector {
                 let swatch = parent.querySelector(`.swatch-element[data-value="${option}"]`);
                 that.productSwatchAction(swatch, false);
             }
+            let produtPice=document.querySelector(".product-price")
+            produtPice.innerHTML=formatMoney(variant.price)
+            let productSku=document.querySelector(".product-dec span");
+            productSku.innerHTML=variant.sku
         }
     }
     queryString(value) {

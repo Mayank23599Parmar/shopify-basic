@@ -101,10 +101,41 @@ class Product {
         });
         
     }    
+    createSlider=()=>{
+        const parent = this.parent;
+        const that = this;
+        let selector = $(".ProductImages .list", parent);
+        let thumbBlock = $(".ProductImages .thumb", parent);
+        let thumbLength = $(".single-thumb", parent).length;
+        let slidesToShow = 5;
+        if (thumbLength == 2) {
+          slidesToShow = 2;
+        }
+        if ($(selector).length > 0 && $(".single-image", selector).length > 1) {
+          that.sliderElement = $(selector).slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            asNavFor: thumbBlock,
+            dots: false,
+            arrows: false,
+            infinite:false
+          });
+          $(thumbBlock).slick({
+            infinite: true,
+            slidesToShow: slidesToShow,
+            slidesToScroll: 1,
+            asNavFor: selector,
+            arrows: false,
+            focusOnSelect: true,
+            infinite:false
+          });
+        }
+    }
     init = () => {
         this.initiateProductVariant();
         this.clickEvent();
         this.changeEvent();
+        this.createSlider()
     }
 }
 if (document.getElementById('product-page')) {

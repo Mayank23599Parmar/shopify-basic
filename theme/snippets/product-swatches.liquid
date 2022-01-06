@@ -21,7 +21,7 @@
         {% assign values = values | append: ',' | append: value %}
         {% assign values = values | split: ',' %}
         <div data-value="{{ value | escape }}" class="swatch-element {{ value | handle }}">
-            <span>
+            <span class="{%-if variant.quantity -%} availabe {% else %} sold  {%- endif -%}" >
                 {{ value | escape }}
             </span>
         </div>
