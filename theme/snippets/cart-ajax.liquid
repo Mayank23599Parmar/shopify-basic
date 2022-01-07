@@ -36,18 +36,18 @@
                     <p>Price :{{item.price | money_with_currency}}</p>
                 </div>
                 <div class="cart-action-button">
-                    <div class="cart-plus" data-variant={{item.variant_id}} data-quantity={{item.quantity}}>
+                    <div class="cart-plus" data-variant={{item.variant_id}}>
                         <img src="https://cdn.shopify.com/s/files/1/0618/2535/1909/files/plus-svgrepo-com.svg?v=1641497698"
                             class="icon-img" alt="cart-plus">
                     </div>
-                    <div class="cart-minus"  data-variant={{item.variant_id}} data-quantity={{item.quantity}}>
+                    <div class="cart-minus"  data-variant={{item.variant_id}}>
                         <img src="https://cdn.shopify.com/s/files/1/0618/2535/1909/files/minus-svgrepo-com.svg?v=1641497687"
                             class="icon-img" alt="cart-minus">
                     </div>
-                    <a href="/cart/change?line={{ forloop.index }}&quantity=0"  class="cart-remove"  data-variant={{item.variant_id}} data-quantity={{item.quantity}}>
+                    <div class="cart-remove"  data-variant={{item.variant_id}}>
                         <img src="https://cdn.shopify.com/s/files/1/0618/2535/1909/files/cancel-svgrepo-com.svg?v=1641497674"
                             class="icon-img" alt="cart-remove">
-                    </a>
+                    </div>
                 </div>
             </div>
             {% endfor %}

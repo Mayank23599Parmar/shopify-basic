@@ -86,3 +86,27 @@ export const addToCart = async (data, cb = undefined) => {
     cb();
   }
 }
+/* change cart quantity*/
+
+export const cartChange = async (data, cb = undefined) => {
+  let res = await fetch('/cart/change.js', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  });
+  res = await res.json();
+  if (cb) {
+    cb();
+  }
+}
+export const clearCart = async function(cb = undefined){
+  let respo = await fetch("/cart/clear.js", {
+    method: "GET"
+  });
+  respo = await respo.json();
+  if (cb) {
+    cb();
+  }
+}

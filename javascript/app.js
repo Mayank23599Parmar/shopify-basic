@@ -5,4 +5,5 @@ require('./vendor/lazy-load');
 require("./vendor/slick-slider")
 //pages
 require ("./variantSelector")
-require("./productPage")
+require("./productPage");
+require('./cart-page')
