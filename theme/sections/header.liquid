@@ -1,0 +1,104 @@
+{% comment %}Header width{% endcomment %}
+{%- if section.settings.full -%}
+{%- assign container = 'container-fluid' -%}
+{% else %}
+{%- assign container = 'container' -%}
+{%- endif -%}
+
+
+{% comment %}Logo size{% endcomment %}
+{%- assign logoSize = section.settings.logo_size -%}
+{%- if logoSize == 0 %}
+{%- assign logoSize = 50 -%}
+{%- endif %}
+{%- assign logoSize_xs = section.settings.logo_size_xs -%}
+{%- if logoSize_xs == 0 -%}
+{%- assign logoSize_xs = 30 -%}
+{%- endif %}
+{% comment %}Main header{% endcomment %}
+
+{% render 'announcement-header' %}
+<header class="main-header">
+
+    {% comment %}Large screen header{% endcomment %}
+    <div class="large-header">
+        {% render 'large-header' ,container:container,side_cart:side_cart %}
+    </div>
+</header>
+
+{%- include 'mobile-menu' -%}
+{% schema %}
+
+{
+"name": "Header",
+"settings": [
+{
+"type": "image_picker",
+"id": "site_logo",
+"label": "Logo white background"
+},
+{
+    "type": "image_picker",
+    "id": "site_logo_black",
+    "label": "Logo black background"
+    },
+{
+"type": "range",
+"id": "logo_size",
+"min": 100,
+"max": 300,
+"step": 5,
+"unit": "px",
+"label": "Logo size",
+"default": 150
+},
+{
+"type": "range",
+"id": "logo_size_xs",
+"min": 100,
+"max": 300,
+"step": 5,
+"unit": "px",
+"label": "Logo size (Mobile)",
+"default": 120
+},
+{
+"type": "header",
+"content": "Main menu"
+},
+{
+"type": "link_list",
+"id": "main_menu",
+"label": "Select menu",
+"info": "To add a mega menu scroll at bottom of this section and select 'Add mega menu'"
+}
+],
+"blocks": [
+{
+"type": "menu",
+"name": "Mega menu",
+"settings": [
+{
+"type": "text",
+"label": "Select mega menu",
+"id": "mega",
+"info": "Title of any link from main navigation"
+}
+]
+}
+]
+}
+{% endschema %}
+
+<style>
+    /*   logo size */
+    .main-header .site-logo img {
+        max-width: {{logoSize}}px;
+    }
+
+    @media(max-width:767px) {
+        .main-header .site-logo img {
+            max-width: {{logoSize_xs}}px;
+        }
+    }
+</style>

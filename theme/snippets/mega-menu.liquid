@@ -1,0 +1,20 @@
+<!-- mega-menu -->
+
+<div class="child-menu mega-menu{% if block.settings.mega_full %} full-mega{% endif %}">
+ 
+      {%- for link in parent_link.links -%}
+        <div class="single-list">
+          <a class="head" href='{{link.url}}'>
+            {{link.title}}
+          </a>
+          <ul class="menu-ul">
+            {%- for sublink in link.links -%}
+              <li>
+                <a href='{{sublink.url}}'>{{sublink.title}}</a>
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      {%- endfor -%}
+
+</div>

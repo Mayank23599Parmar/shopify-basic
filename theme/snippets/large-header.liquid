@@ -1,0 +1,28 @@
+<!-- large-header -->
+<div class="{{container}}">
+      <div class="logo-side side">
+        <div class="site-logo">
+          <a href="/" itemprop="url">
+              {% if template =="collection"  or template =="index"%}
+              {% if section.settings.site_logo != blank %}
+              <img itemprop="logo"  src="{{section.settings.site_logo | img_url: 'large' | format: 'png'}}" alt="{{shop.name}}">
+            {% else %}
+              <h6>{{shop.name}}</h6>
+            {% endif %}
+            {% else %}
+            {% if section.settings.site_logo_black != blank %}
+            <img itemprop="logo"  src="{{section.settings.site_logo_black | img_url: 'large' | format: 'png'}}" alt="{{shop.name}}">
+          {% else %}
+            <h6>{{shop.name}}</h6>
+          {% endif %}
+              {% endif %}
+            
+          </a>
+        </div>
+      </div>
+      <div class="menu-side side">
+        <nav class="main-menu text-center">
+          {% render 'site-nav' %}
+        </nav>
+      </div>
+  </div>

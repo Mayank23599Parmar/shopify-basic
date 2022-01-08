@@ -1,0 +1,54 @@
+<!-- site-nav -->
+{%- comment -%}First Level{%- endcomment -%}
+<ul class="ul nav clearfix">
+  {% for link in linklists[section.settings.main_menu].links  %}
+    {% if link.links == blank %}
+      <li class="li{% if link.active %} active{% endif %}">
+        <a href="{{link.url}}" class='bold {{ template }}'>
+          {{link.title}}
+        </a>
+      </li>
+    {% else %}
+      {%- comment -%}Mega menu check{%- endcomment -%}
+      {%- for block in section.blocks -%}
+        {%- assign mega_handle =  block.settings.mega | handleize -%}
+        {%- if link.handle == mega_handle -%}
+          {%- assign mega = true -%}
+          {%- assign mega_settings = block -%}
+        {% endif -%}
+      {%- endfor  -%}
+      {%- comment -%}Mega menu check end{%- endcomment -%}
+      <li class="has-child li{% if link.active %} active{% endif %}{% unless mega %} relative{% endunless %}">
+        <a href="{{link.url}}" class='bold  {{ template }}'>
+          {{link.title}}
+          <div class="dropdown-arrow">▲</div>
+        </a> 
+        {%- comment -%}Second Level{%- endcomment -%}
+        {%- if mega -%}
+          {%- render 'mega-menu',parent_link:link,block:mega_settings -%}
+        {%- else -%}
+          <div class="second-level child-menu">
+            <ul class="second-ul">
+              {%- for child_link in link.links -%}
+                {%- if child_link.links == blank -%}
+                  <li class="second-li">
+                    <a href='{{child_link.url}}'>
+                      {{child_link.title}}
+                    </a>
+                  </li>
+                {%- else -%}
+                  <li class="second-li has-child">
+                    <a href='{{child_link.url}}'>
+                      {{child_link.title}}
+                    </a>
+                  </li>
+                {%- endif -%}
+              {%- endfor -%}
+            </ul>
+          </div>
+        {%- endif -%}
+      </li>
+      {%- assign mega = false -%}
+    {% endif %}
+  {% endfor %}
+</ul>

@@ -1,0 +1,168 @@
+#shopify-section-header.sticky {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+header.main-header {
+  position: relative;
+  top: 30px;
+  &.fixed {
+    position: fixed;
+    top: -100%;
+    left: 0;
+    z-index: 90;
+    width: 100%;
+    margin: 0;
+    @include transition(all 400ms ease-in-out);
+    &.active {
+      top: 0;
+    }
+  }
+  a {
+    transition: 0.3s all;
+  }
+  .large-header {
+    .side {
+      align-self: center;
+    }
+    /*================ Logo side ================*/
+    .logo-side {
+      position: absolute;
+      z-index: 1001;
+      top: 0;
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+      transform: translateX(-50%);
+    }
+    .site-logo {
+      a {
+        display: block;
+      }
+      h6 {
+        text-transform: uppercase;
+      }
+    }
+    /*================ Menu side ================*/
+    .menu-side {
+      position: absolute;
+      z-index: 1002;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+    /*================ Icon side ================*/
+    .icon-side {
+      width: 20%;
+      .icon-li {
+        display: inline-block;
+        vertical-align: top;
+        margin-left: 10px;
+      }
+      .search-button {
+        text-align: center;
+        a {
+          display: block;
+          padding-top: 5px;
+        }
+      }
+      .accounts {
+        > a {
+          line-height: 1;
+          padding: 8px 0;
+          display: block;
+          text-align: center;
+          i {
+            font-size: 30px;
+          }
+        }
+      }
+    }
+  }
+
+  .small-header {
+    position: relative;
+    .mobile-right {
+      a {
+        padding: 9px 0;
+        min-width: 30px;
+        &.side-cart {
+          padding-top: 5px;
+        }
+      }
+    }
+    .mobile-menu-btn {
+      min-width: 35px;
+      display: inline-block;
+      padding: 10px 0;
+    }
+  }
+}
+/*================ Cart ================*/
+.cart {
+  position: relative;
+  .count {
+    position: absolute;
+    padding: 0;
+    line-height: 1;
+    font-size: 10px;
+    @include transform(translate(50%, -50%));
+    top: -2px;
+    right: -2px;
+    min-width: 18px;
+    text-align: center;
+    height: 18px;
+    line-height: 18px;
+    border-radius: 5px;
+  }
+}
+#initial-mobile-menu {
+  display: none;
+}
+.mobile_nav {
+  @include mq("phone") {
+    display: table;
+    width: 100%;
+  }
+  .site-logo {
+    @include mq("phone") {
+      display: table-cell;
+      vertical-align: middle;
+      width: 30%;
+      padding-right: 0 !important;
+    }
+  }
+  .mobile-menu-btn {
+    display: inline-block;
+    a {
+      line-height: 30px;
+      font-size: 26px;
+    }
+    @include mq("tablet") {
+      display: block !important;
+    }
+    @include mq("phone") {
+      display: table-cell !important;
+      vertical-align: middle;
+      width: 35%;
+    }
+    @include mq("lap-and-up") {
+      display: none;
+    }
+  }
+  .mobile-search-icon {
+    @include mq("phone") {
+      display: table-cell;
+      vertical-align: middle;
+      width: 35%;
+      text-align: right;
+    }
+    font-size: 20px;
+    a {
+      display: inline-block;
+      vertical-align: top;
+      padding-left: 10px;
+      font-size: 18px;
+    }
+  }
+}
+//test

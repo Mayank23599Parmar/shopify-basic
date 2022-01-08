@@ -1,4 +1,8 @@
 #product-page {
+    padding-top: 135px;
+    @include mq("phone"){
+        padding-top: 0;
+    }
     .product-template {
         .product-details-wrapper {
             padding-left: 30px;
@@ -148,10 +152,12 @@
                 @include align-items(center);
                 @include mq("phone") {
                     flex-direction: row !important;
-                    @include justify-content(space-between);
+                    @include justify-content(flex-start);
                     @include align-items(center);
                     margin-top: 20px;
                     @include flex-wrap(wrap);
+                    gap: 20px;
+                    grid-gap: 20px;
                 }
             }
 
