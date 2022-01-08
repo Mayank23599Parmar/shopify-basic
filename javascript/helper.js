@@ -110,3 +110,14 @@ export const clearCart = async function(cb = undefined){
     cb();
   }
 }
+/* to show/hide black black background */
+export const blackBgOpen = () => {
+  $(".black-bg").fadeIn();
+  $("html").addClass("overflow-hidden");
+  $("body").addClass("overflow-hidden");
+}
+export const blackBgClose = () => {
+  $(".black-bg").fadeOut();
+  $("html").removeClass("overflow-hidden");
+  $("body").removeClass("overflow-hidden");
+}

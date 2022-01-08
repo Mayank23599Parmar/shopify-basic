@@ -1,0 +1,30 @@
+<!-- small-header -->
+<div class="container-fluid">
+    <div class="flex-view-xs middle space">
+      <div class="col-xs-4">
+        <a class="mobile-menu-btn">
+          {%- render 'icons',icon:'mobile-menu',width:20,height:20 -%}
+        </a>
+      </div>
+      <div class="col-xs-4">
+        <div class="site-logo text-center">
+          <div class="inline-block">
+            <a href="/">
+              {% if section.settings.site_logo_black != blank %}
+                <img  src="{{section.settings.site_logo_black | img_url: 'large' | format: 'png'}}" alt="{{shop.name}}">
+              {% else %}
+                <h6>{{shop.name}}</h6>
+              {% endif %}
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-4">
+        <div class="text-right mobile-right">
+          <a class="side-cart cart">
+            <span>{{cart.item_count}}</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>

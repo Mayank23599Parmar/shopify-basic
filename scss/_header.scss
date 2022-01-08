@@ -3,9 +3,31 @@
   top: 0;
   z-index: 100;
 }
+.mobile-back-drop {
+  position: absolute;
+  z-index: 999999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5));
+  opacity: 0.7;
+  transition-duration: 0.5s;
+  display: none;
+  @include mq("phone") {
+    &.active {
+      display: block;
+    }
+  }
+}
 header.main-header {
   position: relative;
   top: 30px;
+  @include mq("phone") {
+    position: initial;
+    top: 0;
+    height: 0;
+  }
   &.fixed {
     position: fixed;
     top: -100%;
@@ -22,6 +44,9 @@ header.main-header {
     transition: 0.3s all;
   }
   .large-header {
+    @include mq("phone") {
+      display: none;
+    }
     .side {
       align-self: center;
     }
@@ -81,12 +106,46 @@ header.main-header {
 
   .small-header {
     position: relative;
+    display: none;
+    &.fixed {
+      position: fixed;
+      width: 100%;
+      position: fixed;
+      z-index: 99999;
+      width: 100%;
+      height: 90px;
+      background: #fafafa;
+      transition: 0.5s;
+      top: 0;
+      padding-top: 20px; 
+       }
+    @include mq("phone") {
+      display: block;
+      padding: 20px 0;
+      z-index: 999;
+
+    }
     .mobile-right {
       a {
-        padding: 9px 0;
         min-width: 30px;
         &.side-cart {
-          padding-top: 5px;
+          position: fixed;
+          z-index: 1000;
+          top: 20px;
+          right: 15px;
+          width: 40px;
+          height: 40px;
+          background: #000;
+          border-radius: 50%;
+          color: #fff;
+          text-align: center;
+          line-height: 40px;
+          span {
+            color: #fff;
+            text-align: center;
+            line-height: 40px;
+            font-size: 20px;
+          }
         }
       }
     }
@@ -94,6 +153,13 @@ header.main-header {
       min-width: 35px;
       display: inline-block;
       padding: 10px 0;
+      svg {
+        width: 30px;
+        height: 24px;
+        &.header-white {
+          fill: #fff;
+        }
+      }
     }
   }
 }
