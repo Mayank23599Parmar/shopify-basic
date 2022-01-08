@@ -1,56 +1,41 @@
-<div class="cart-wrapper">
-    <div class="container">
-        <div class="cart-header">
-            <div class="cnt-shoping">
-                <a href="../collections/all">
-                    < continue shopping</a>
-            </div>
-            <div class="empty-cart">
-                <a>empty cart</a>
-            </div>
-        </div>
-        <div class="cart-items-wrapper">
-            {% for item in cart.items %}
-            <div class="cart-item">
-                <div class="cart-tem-image">
-                    <a href="{{ item.url | within: collections.all }}" class="cart__image">
+{% for item in cart.items %}
+<div class="cart-item">
+    <div class="cart-tem-image">
+        <a href="{{ item.url | within: collections.all }}" class="cart__image">
 
-                        {% comment %}
-                        More image size options at:
-                        - http://docs.shopify.com/themes/filters/product-img-url
-                        {% endcomment %}
-                        {%- render 'srcset',src_name:item.image,src_alt:item.title ,src_class:'product-image' -%}
+            {% comment %}
+            More image size options at:
+            - http://docs.shopify.com/themes/filters/product-img-url
+            {% endcomment %}
+            {%- render 'srcset',src_name:item.image,src_alt:item.title ,src_class:'product-image' -%}
 
-                    </a>
-                    <a href="{{ item.url | within: collections.all }}" class="cart-title">
-                    <h3>{{ item.title }}</h3>
-                    </a>
-                </div>
-                <div class="cart-item-details">
-                    <p class="item-size">size : {%- for option in item.options_with_values -%}
-                        {% if option.name == "Size" %}
-                        {{option.value}}
-                        {% endif %}
-                        {%- endfor -%} </p>
-                    <p class="cart-quantity">QTY {{item.quantity}}</p>
-                    <p>Price :{{item.price | money_with_currency}}</p>
-                </div>
-                <div class="cart-action-button">
-                    <div class="cart-plus" data-variant={{item.variant_id}}>
-                        <img src="https://cdn.shopify.com/s/files/1/0618/2535/1909/files/plus-svgrepo-com.svg?v=1641497698"
-                            class="icon-img" alt="cart-plus">
-                    </div>
-                    <div class="cart-minus"  data-variant={{item.variant_id}}>
-                        <img src="https://cdn.shopify.com/s/files/1/0618/2535/1909/files/minus-svgrepo-com.svg?v=1641497687"
-                            class="icon-img" alt="cart-minus">
-                    </div>
-                    <div class="cart-remove"  data-variant={{item.variant_id}}>
-                        <img src="https://cdn.shopify.com/s/files/1/0618/2535/1909/files/cancel-svgrepo-com.svg?v=1641497674"
-                            class="icon-img" alt="cart-remove">
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
+        </a>
+        <a href="{{ item.url | within: collections.all }}" class="cart-title">
+        <h3>{{ item.title }}</h3>
+        </a>
+    </div>
+    <div class="cart-item-details">
+        <p class="item-size">size : {%- for option in item.options_with_values -%}
+            {% if option.name == "Size" %}
+            {{option.value}}
+            {% endif %}
+            {%- endfor -%} </p>
+        <p class="cart-quantity">QTY {{item.quantity}}</p>
+        <p>Price :{{item.price | money_with_currency}}</p>
+    </div>
+    <div class="cart-action-button">
+        <div class="cart-plus" data-variant={{item.variant_id}} data-quantity={{item.quantity}}>
+            <img src="https://cdn.shopify.com/s/files/1/0618/2535/1909/files/plus-svgrepo-com.svg?v=1641497698"
+                class="icon-img" alt="cart-plus">
         </div>
+        <div class="cart-minus"  data-variant={{item.variant_id}} data-quantity={{item.quantity}}>
+            <img src="https://cdn.shopify.com/s/files/1/0618/2535/1909/files/minus-svgrepo-com.svg?v=1641497687"
+                class="icon-img" alt="cart-minus">
+        </div>
+        <a href="/cart/change?line={{ forloop.index }}&quantity=0"  class="cart-remove"  data-variant={{item.variant_id}} data-quantity={{item.quantity}}>
+            <img src="https://cdn.shopify.com/s/files/1/0618/2535/1909/files/cancel-svgrepo-com.svg?v=1641497674"
+                class="icon-img" alt="cart-remove">
+        </a>
     </div>
 </div>
+{% endfor %}

@@ -1,22 +1,22 @@
 import { addToCart ,cartChange,clearCart} from "./helper";
 class CartPage {
     constructor() {
-        this.clickEvent()
+        this.init()
     }
-    renderCart = async () => {
+    cartInit = async () => {
         let res = await fetch('/cart?view=ajax');
         let resJson = await res.text();
-        document.querySelector(".cart-items-wrapper").innerHTML = resJson
+        document.getElementById("cart-idss").innerHTML = resJson
     }
     clickEvent = () => {
         //add to cart quantitty
+        const that=this
         let addCartBiutton = document.querySelector(".cart-plus");
         let minusCartBiutton = document.querySelector(".cart-minus");
         let emptyCart=document.querySelector(".empty-cart")
         let variantId;
         let quantity = 1;
         let formData = {}
-        if (addCartBiutton) {
             addCartBiutton.addEventListener("click", (e) => {
                 variantId = e.currentTarget.dataset.variant;
                 if (variantId) {
@@ -24,13 +24,10 @@ class CartPage {
                         id: variantId,
                         quantity: quantity
                     }
-                    addToCart(formData,window.location.reload())
-
-
-
+                     addToCart(formData,this.cartInit);
                 }
             })
-        }
+        
         // minus cart quantity
         if(minusCartBiutton){
             minusCartBiutton.addEventListener("click",(e)=>{
@@ -42,7 +39,7 @@ class CartPage {
                         quantity: parseInt(variantQantity) - 1
                     }
                     
-                    cartChange(formData,window.location.reload())
+                    cartChange(formData,this.cartInit)
                 }
             })
         }
@@ -53,6 +50,11 @@ class CartPage {
             })
          }
     }
+    init = () => {
+        this.clickEvent();
+       
+    }
 }
 
-new CartPage;
+new CartPage();
+//test
