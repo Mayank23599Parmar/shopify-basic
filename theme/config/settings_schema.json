@@ -324,5 +324,20 @@
         "default":true
       }
     ]
+  },
+  {
+    "name": "Announsment bar",
+    "settings": [
+      {
+        "type": "text",
+        "id": "announce_text",
+        "label":"Title"
+      },
+      {
+        "type": "url",
+        "id": "announce_url",
+        "label":"URL"
+      }
+    ]
   }
 ]

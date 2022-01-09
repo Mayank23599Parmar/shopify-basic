@@ -1,35 +1,45 @@
 <div class="announcement-bar-wrapper">
     <div class="announce-bar">
         <div class="section">
-            <a>Login</a>
+            <a href="#">Login</a>
             <div class="launguage-selector">
-                <localization-form>
                     {% form 'localization' %}
-                      <div class="disclosure">
-                        <button type="button" class="disclosure__button" aria-expanded="false" aria-controls="LanguageList">
-                          {{ localization.language.endonym_name | capitalize }}
-                  
-                          <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-caret" viewBox="0 0 10 6">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor">
-                          </svg>
-                        </button>
-                  
-                        <ul id="LanguageList" role="list" class="disclosure__list" hidden>
+                    <select name="language">
                           {% for language in localization.available_languages %}
-                            <li class="disclosure__item" tabindex="-1">
-                              <a href="#"{% if language.iso_code == localization.language.iso_code %} aria-current="true"{% endif %} hreflang="{{ language.iso_code }}" lang="{{ language.iso_code }}" data-value="{{ language.iso_code }}">
+                              <option {% if language.iso_code == localization.language.iso_code %} aria-current="true"{% endif %} hreflang="{{ language.iso_code }}" lang="{{ language.iso_code }}" data-value="{{ language.iso_code }}">
                                 {{ language.endonym_name | capitalize }}
-                              </a>
-                            </li>
+                             
+                              </option>
                           {% endfor %}
-                        </ul>
-                  
+                    </select>
                         <input type="hidden" name="language_code" value="{{ localization.language.iso_code }}">
-                      </div>
-                    {% endform %}
-                  </localization-form>
-                  
+                    {% endform %}      
             </div>
         </div>
+        <div class="section">
+           <a href="{{settings.announce_url}}">
+             {{settings.announce_text}}
+           </a>
+        </div>
+       <div class="section">
+        <div class="multi-currency">
+          {% form 'currency' %}
+          <label>Currency</label>
+            <select name="currency">
+              {% for currency in shop.enabled_currencies %}
+                {% if currency == cart.currency %}
+                  <option selected="true" value="{{currency.iso_code}}">{{currency.iso_code}} {{ currency.symbol }}</option>
+                {% else %}
+                  <option value="{{currency.iso_code}}">{{currency.iso_code}} {{ currency.symbol }}</option>
+                {% endif %}
+              {% endfor %}
+            </select>
+          {% endform %}
+        </div>
+        <a href="/cart" class="cart-mobile opacity">
+          Cart
+          <div class="side-cart cart"><span>{{cart.item_count}}</span></div> 
+        </a>
+       </div>
     </div>
 </div>

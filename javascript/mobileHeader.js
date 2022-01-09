@@ -12,14 +12,49 @@ class mobileMenu {
 
     // Get the offset position of the navbar
     var sticky = header.offsetTop;
-
+    let sitelogo = document.querySelectorAll(".img-logo")
+    let mobilDrwerButton;
+    if( document.querySelectorAll(".mobile-menu-btn.index").length > 0){
+      mobilDrwerButton= document.querySelectorAll(".mobile-menu-btn.index") 
+    }
+    if( document.querySelectorAll(".mobile-menu-btn.collection").length > 0){
+      mobilDrwerButton= document.querySelectorAll(".mobile-menu-btn.collection")
+    }
     // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
     function myFunction() {
       if (window.pageYOffset > sticky) {
         header.classList.add("fixed");
+
+       
+        if(mobilDrwerButton){
+          sitelogo.forEach((el) => {
+            let current = el
+            if (current.classList.contains("image-white")) {
+              current.classList.remove("active")
+            } else {
+              current.classList.add("active")
+            }
+          })
+           mobilDrwerButton[0].children[0].classList.add("active")
+        }
+
       } else {
         header.classList.remove("fixed");
+        if(mobilDrwerButton){
+          sitelogo.forEach((el) => {
+            let current = el
+            if (current.classList.contains("image-white")) {
+              current.classList.add("active")
+            } else {
+              current.classList.remove("active")
+            }
+          })
+          mobilDrwerButton[0].children[0].classList.remove("active")
+        }
+      
       }
+
+
     }
   }
   clickEvent = () => {

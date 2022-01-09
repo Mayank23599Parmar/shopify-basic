@@ -2,13 +2,19 @@
 @import 'variable';
 @import 'grid';
 @import "./vendor/swiper";
-
+//header
+@import "./announce-bar";
+@import "./header";
+@import "./mobile";
+@import "./navigation";
 //home page
 @import "./home-page";
 // collection page
 @import "./collection-page";
+//prouct page
 @import "./product-page";
+//cart page
 @import "./cart-page";
-@import "./navigation";
-@import "./header";
-@import "./mobile";
+
+
+

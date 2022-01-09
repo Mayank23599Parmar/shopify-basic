@@ -1,0 +1,93 @@
+.announcement-bar-wrapper {
+    @include mq("phone"){
+        display: none
+    }
+    .announce-bar {
+        @include flexbox();
+        @include align-items(center);
+        @include justify-content(space-between);
+        position: fixed;
+        z-index: 100;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 35px;
+        background: #222;
+        color: #fff;
+        font-size: 12px;
+        line-height: 35px;
+        padding: 0 20px;
+        .section{
+            @include flexbox();
+            @include align-items(center);
+            a{
+                color: #fff;
+                font-size: 12px;
+                &.cart-mobile {
+                    @include flexbox();
+                    @include align-items(center);
+                    gap: 25px;
+                    grid-gap: 25px;
+                    .side-cart {
+                      right: 15px;
+                      width: 20px;
+                      height: 20px;
+                      background: #fff;
+                      border-radius: 50%;
+                      color: #fff;
+                      text-align: center;
+                      line-height: 20px;
+                      span {
+                        color: #000;
+                        text-align: center;
+                        font-size: 12px;
+                      }
+                    }
+                  }
+            }
+            .launguage-selector{
+                form {
+                    @include flexbox();
+                    @include align-items(center);
+                    margin-left: 20px;
+                    label {
+                      color: #fff;
+                      font-size: 12px;
+                    }
+                    select {
+                      display: block;
+                      padding: 0px 0px 0 5px;
+                      color: #fff;
+                      font-size: 12px;
+                      border: none;
+                      option{
+                        padding: 10px;
+                        height: auto;
+                        background: #434343;
+                        border-bottom: 1px solid #333;
+                        color: #fff;
+                      }
+                    }
+                  }
+            }
+            .multi-currency{
+                form {
+                    @include flexbox();
+                    @include align-items(center);
+                    margin-right: 20px;
+                    label {
+                      color: #fff;
+                      font-size: 12px;
+                    }
+                    select {
+                      display: block;
+                      padding: 0px 0px 0 5px;
+                      color: #fff;
+                      font-size: 12px;
+                      border: none;
+                    }
+                  }
+            }
+        }
+    }
+}

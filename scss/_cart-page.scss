@@ -1,4 +1,8 @@
 .cart-wrapper {
+    padding-top: 130px;
+    @include mq("phone"){
+    padding-top: 90px
+    }
     .cart-header {
         @include flexbox();
         @include align-items(center);
