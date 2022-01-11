@@ -1,0 +1,43 @@
+<!-- Footer -->
+<div class="footer-wrapper">
+    <div class="container">
+      {% render 'footer-nav' %}
+      {% render 'footer-payment-option' %}
+      <div class="copyright">
+        <div class="text">
+          <p>Copyright ©
+            {{shop.name | capitalize }}, Inc
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  {% schema %}
+  {
+    "name": "Footer",
+    "settings": [
+      {
+        "type": "link_list",
+        "id": "nav_1",
+        "label": "Select menu 1"
+      },
+      {
+        "type": "link_list",
+        "id": "nav_2",
+        "label": "Select menu 2"
+      },
+      {
+        "type": "link_list",
+        "id": "nav_3",
+        "label": "Select menu 3"
+      },
+      {
+        "type": "link_list",
+        "id": "nav_4",
+        "label": "Select menu 4"
+      }
+    ]
+  }
+  {% endschema %}
+  

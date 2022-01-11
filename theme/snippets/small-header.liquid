@@ -2,13 +2,13 @@
 <div class="container-fluid">
     <div class="flex-view-xs middle space">
       <div class="col-xs-4">
-        <a class="mobile-menu-btn {{template}}">
+        <a class="mobile-menu-btn {{template}} {{page.handle}}">
           {%- render 'icons',icon:'mobile-menu',width:20,height:20 -%}
         </a>
       </div>
       <div class="col-xs-4">
         <div class="site-logo text-center">
-          <div class="inline-block site-logo-container {{template}}">
+          <div class="inline-block site-logo-container {{template}} {{ page.handle}}">
             <a href="/" class="image-balck img-logo">
               {% if section.settings.site_logo_black != blank %}
                 <img  src="{{section.settings.site_logo_black | img_url: 'large' | format: 'png'}}" alt="{{shop.name}}">
@@ -16,7 +16,7 @@
                 <h6>{{shop.name}}</h6>
               {% endif %}
             </a>
-            {% if template == "collection" or template == "index" %}
+            {% if template == "collection" or template == "index" or page.handle == "about" %}
             <a href="/" class="image-white active img-logo">
               {% if section.settings.site_logo != blank %}
                 <img  src="{{section.settings.site_logo | img_url: 'large' | format: 'png'}}" alt="{{shop.name}}">

@@ -141,7 +141,21 @@ header.main-header {
           }
         }
         &.collection {
-          .image-balck  {
+          .image-balck {
+            display: none;
+            &.active {
+              display: block;
+            }
+          }
+          .image-white {
+            display: none;
+            &.active {
+              display: block;
+            }
+          }
+        }
+        &.about {
+          .image-balck {
             display: none;
             &.active {
               display: block;
@@ -198,6 +212,18 @@ header.main-header {
         }
       }
       &.collection {
+        svg {
+          width: 30px;
+          height: 24px;
+          fill: #fff;
+          &.active {
+            width: 30px;
+            height: 24px;
+            fill: #000;
+          }
+        }
+      }
+      &.about {
         svg {
           width: 30px;
           height: 24px;

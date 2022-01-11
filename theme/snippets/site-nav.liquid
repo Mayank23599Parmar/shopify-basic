@@ -4,7 +4,7 @@
   {% for link in linklists[section.settings.main_menu].links  %}
     {% if link.links == blank %}
       <li class="li{% if link.active %} active{% endif %}">
-        <a href="{{link.url}}" class='bold {{ template }}'>
+        <a href="{{link.url}}" class='bold {{ template }} {{page.handle}}'>
           {{link.title}}
         </a>
       </li>
@@ -19,7 +19,7 @@
       {%- endfor  -%}
       {%- comment -%}Mega menu check end{%- endcomment -%}
       <li class="has-child li{% if link.active %} active{% endif %}{% unless mega %} relative{% endunless %}">
-        <a href="{{link.url}}" class='bold  {{ template }}'>
+        <a href="{{link.url}}" class='bold  {{ template }} {{page.handle}}'>
           {{link.title}}
           <div class="dropdown-arrow">▲</div>
         </a> 

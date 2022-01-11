@@ -1,0 +1,57 @@
+<div class="about-page">
+    <div class="about-page-wrapper">
+        <div class="text-wrapper">
+            <h1 class="title">{{section.settings.title}}</h1>
+            <div class="about-des">
+                {{section.settings.description}}
+                <div class="btn-wrapper">
+                    <a class="btn  about-btn" href="{{section.settings.about_url}}">{{section.settings.about_btn}}</a>
+                </div>
+            </div>
+          
+          
+        </div>
+    </div>
+</div>
+<style>
+    .about-page{
+        background-image: url('{{ section.settings.about_page_img }}');
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+    width: 100%;
+    height: 100vh;
+    }
+</style>
+{% schema %}
+{
+  "name": "About  page",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Express our story description.</p>"
+    },
+   {
+     "type": "text",
+     "id": "about_page_img",
+     "label": "Page background image"
+   },
+   {
+    "type": "text",
+    "id": "about_btn",
+    "label": "Button label"
+  },
+   {
+    "type": "url",
+    "id": "about_url",
+    "label": "Url for button"
+  }
+  ]
+}
+{% endschema %}

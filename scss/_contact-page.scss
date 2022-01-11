@@ -1,0 +1,51 @@
+.contact-page {
+    margin: 0 auto;
+    padding: 300px 0;
+    max-width: 600px;
+    width: 100%;
+    @include mq("phone") {
+        padding: 150px 0;
+        max-width: 300px;
+    }
+    .text-wrapper {
+        .text {
+            color: #000;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        .title {
+            font-weight: bold;
+            color: #000;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+    }
+    .contact-fom-wrapper {
+        .note {
+            font-weight: 500;
+            color: rgb(66, 186, 150);
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        form {
+            @include flexbox();
+            flex-direction: column;
+            input {
+                display: block;
+                margin-bottom: 5px;
+                padding: 15px;
+                width: calc(100% - 32px);
+                border: 1px solid #ccc;
+                text-align: center;
+            }
+            textarea {
+                display: block;
+                margin-bottom: 5px;
+                padding: 15px;
+                width: calc(100% - 32px);
+                border: 1px solid #ccc;
+                text-align: center;
+            }
+        }
+    }
+}
