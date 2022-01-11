@@ -92,6 +92,7 @@
                     padding: 15px 0 20px 20px;
                     @include mq("phone"){
                         padding: 10px 0;
+                        white-space:initial;
                     }
                     .title {
                         margin-bottom: 5px;
