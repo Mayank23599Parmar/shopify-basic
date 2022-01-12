@@ -10,7 +10,7 @@ collection banner image
             <div class="img xs-hide">
                 {%- render 'srcset', src_name:section.settings.image,src_alt:section.settings.image.alt | escape -%}
                 {% if collection_text != blank %}
-                <div class="text-wrapper {{collection_text_position}}">
+                <div class="text-wrapper">
                     <h3 class="title" style="color:{{color}};">{{collection_text}}</h3>
                   </div>
                 {% endif %}
@@ -18,7 +18,7 @@ collection banner image
             <div class="mobile-img xs-show">
                 {%- render 'srcset' src_name:section.settings.image_mob , src_alt:section.settings.image.alt | escape -%}
                 {% if collection_text != blank %}
-                <div class="text-wrapper {{collection_text_position}}">
+                <div class="text-wrapper ">
                     <h3 class="title" style="color:{{color}};">{{collection_text}}</h3>
                   </div>
                 {% endif %}
@@ -57,26 +57,7 @@ collection banner image
       "type": "color",
       "id": "collection_color",
       "label": "Text color"
-  },
- {
-     "type": "select",
-     "id": "collection_text_position",
-     "label": "Text position",
-     "options": [
-         {
-             "value": "top",
-             "label": "Top"
-         },
-         {
-            "value": "bottom",
-            "label": "Bottom"
-        },
-        {
-            "value": "center",
-            "label": "Center"
-        }
-     ]
- }
+  }
   ]
 }
 
