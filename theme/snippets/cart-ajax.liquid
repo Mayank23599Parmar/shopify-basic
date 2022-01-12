@@ -21,7 +21,7 @@
             {% endif %}
             {%- endfor -%} </p>
         <p class="cart-quantity">QTY {{item.quantity}}</p>
-        <p>Price :{{item.price | money_with_currency}}</p>
+        <p>Price :{{item.line_price | money_with_currency}}</p>
     </div>
     <div class="cart-action-button">
         <div class="cart-plus" data-variant={{item.variant_id}} data-quantity={{item.quantity}}>

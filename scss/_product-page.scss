@@ -158,7 +158,7 @@
                     @include flex-wrap(wrap);
                     gap: 6px;
                     grid-gap: 6px;
-                   width: 100% !important;
+                    width: 100% !important;
                 }
             }
 
@@ -169,6 +169,53 @@
                 margin-bottom: 10px;
                 &.slick-current {
                     border: 2px solid $color-black !important;
+                }
+            }
+        }
+    }
+    .list {
+        .single-image {
+            position: relative;
+            padding: 2%;
+            background: none;
+            .product-img-frame {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 75%;
+                width: 100%;
+                background: #888;
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+            .main-image-wrapper{
+                position: relative;
+                padding-top: 133%;
+                width: auto;
+                .img{
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    width: 100%;
+                    height: 100%;
+                    border: 3px solid #000;
+                    -webkit-transform: translate(-50%,-50%);
+                    transform: translate(-50%,-50%);
+                    img{
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        padding: 10px;
+                        @include mq("phone"){
+                            padding: 8px;
+                        }
+                    }
                 }
             }
         }

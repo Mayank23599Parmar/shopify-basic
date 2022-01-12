@@ -82,6 +82,9 @@ export const addToCart = async (data, cb = undefined) => {
     body: JSON.stringify(data),
   });
   res = await res.json();
+  if(res){
+    updateHeaderCount()
+  }
   if (cb) {
     cb();
   }
@@ -97,6 +100,9 @@ export const cartChange = async (data, cb = undefined) => {
     body: JSON.stringify(data),
   });
   res = await res.json();
+  if(res){
+    updateHeaderCount()
+  }
   if (cb) {
     cb();
   }
@@ -106,6 +112,9 @@ export const clearCart = async function(cb = undefined){
     method: "GET"
   });
   respo = await respo.json();
+  if(respo){
+    updateHeaderCount()
+  }
   if (cb) {
     cb();
   }
@@ -120,4 +129,18 @@ export const blackBgClose = () => {
   $(".black-bg").fadeOut();
   $("html").removeClass("overflow-hidden");
   $("body").removeClass("overflow-hidden");
+}
+
+export const updateHeaderCount = async () =>{
+  try{
+    let data = await fetch('/cart.json');
+    data = await data.json();
+    let cartCount = document.querySelectorAll('.cart-count');
+    cartCount.forEach((item)=>{
+      item.innerHTML = data.item_count
+    })
+  }catch(e){
+
+  }
+  
 }
