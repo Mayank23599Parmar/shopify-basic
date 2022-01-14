@@ -1,0 +1,40 @@
+.privacy-page {
+    .privacy-page-wrapper {
+        position: relative;
+        margin: 0 auto;
+        padding: 250px 0 100px;
+        max-width: 800px;
+        width: 100%;
+        @include mq("phone") {
+            max-width: 100%;
+            padding: 125px 0 100px;
+            width: 80%;
+        }
+        .text-wrapper {
+            .title {
+                color: #000;
+                margin-bottom: 30px;
+                font-size: 46px;
+                @include mq("phone") {
+                    margin-bottom: 15px;
+                    font-size: 26px;
+                }
+            }
+            .privacy-des{
+                p{
+                    margin: 0 0 20px;
+                    font-size: 17px;
+                    text-align: justify;
+                    line-height: 2em;
+                    color: #000;
+                    
+                    @include mq("phone") {
+                        margin: 0 0 10px;
+                        font-size: 14px;
+                    }
+                }
+            }
+            
+        }
+    }
+}

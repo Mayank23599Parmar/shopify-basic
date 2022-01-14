@@ -1,0 +1,30 @@
+<div class="privacy-page">
+    <div class="privacy-page-wrapper">
+        <div class="text-wrapper">
+            <p class="title">{{section.settings.title}}</p>
+            <div class="privacy-des">
+                {{section.settings.description}}
+            </div>
+          
+          
+        </div>
+    </div>
+</div>
+{% schema %}
+{
+  "name": "Privacy",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Express our privacy description.</p>"
+    }
+  ]
+}
+{% endschema %}

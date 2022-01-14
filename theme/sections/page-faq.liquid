@@ -1,0 +1,30 @@
+<div class="faq-page">
+    <div class="faq-page-wrapper">
+        <div class="text-wrapper">
+            <h2 class="title">{{section.settings.title}}</h2>
+            <div class="faq-des">
+                {{section.settings.description}}
+            </div>
+          
+          
+        </div>
+    </div>
+</div>
+{% schema %}
+{
+  "name": "FAQ  page",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Express our FAQ description.</p>"
+    }
+  ]
+}
+{% endschema %}

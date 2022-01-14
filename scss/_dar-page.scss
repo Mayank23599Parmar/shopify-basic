@@ -1,0 +1,66 @@
+.dar-page {
+    .dar-page-wrapper {
+        position: relative;
+        margin: 0 auto;
+        padding: 250px 0 100px;
+        max-width: 800px;
+        width: 100%;
+        @include mq("phone") {
+            max-width: 100%;
+            padding: 125px 0 100px;
+            width: 80%;
+        }
+        .header-title{
+            color: #000;
+            margin-bottom: 30px;
+            font-size: 46px;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            margin: 80px 0 40px;
+            @include mq("phone") {
+                margin: 40px 0 20px;
+                font-size: 26px;
+            } 
+        }
+        .text-wrapper {
+           
+            .title {
+                color: #000;
+                padding-bottom: 15px;
+                font-size: 30px;
+                text-transform: uppercase;
+                letter-spacing: 0.25em;
+                font-weight: 100 !important;
+                @include mq("phone") {
+                    padding-bottom: 10px;
+                    font-size: 22px;
+                }
+            }
+            .dar-des{
+                p {
+                   
+                    strong{
+                      font-weight: bold;
+                      font-size: 20px;
+                      @include mq("phone") {
+                        font-size: 16px;
+                    }
+                    }
+                }
+                p{
+                    margin: 0 0 20px;
+                    font-size: 17px;
+                    text-align: justify;
+                    line-height: 2em;
+                    color: #000;
+                    
+                    @include mq("phone") {
+                        margin: 0 0 10px;
+                        font-size: 14px;
+                    }
+                }
+            }
+            
+        }
+    }
+}

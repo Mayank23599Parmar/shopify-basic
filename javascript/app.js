@@ -11,4 +11,5 @@ require("./multi-launguage")
 //pages
 require ("./variantSelector")
 require("./productPage");
+require("./CollectionPage");
 require('./cart-page')

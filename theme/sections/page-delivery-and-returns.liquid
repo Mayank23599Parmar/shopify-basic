@@ -1,0 +1,162 @@
+<div class="dar-page">
+    <div class="dar-page-wrapper">
+        {% if section.settings.delivery_header_title != blank %}
+        <h2 class="header-title">{{section.settings.delivery_header_title}}</h2>
+        {% endif %}
+
+        {%- for block in section.blocks -%}
+        <div class="text-wrapper">
+            {% if block.settings.title != blank %}
+            <h4 class="title">{{block.settings.title}}</h4>
+            {% endif %}
+            {% if block.settings.description != blank %}
+            <div class="dar-des">
+                {{block.settings.description}}
+            </div>
+            {% endif %}
+        </div>
+        {%- endfor -%}
+        {% if section.settings.return_header_title != blank %}
+        <h2 class="header-title">{{section.settings.return_header_title}}</h2>
+        {% endif %}
+        {%- for block in section.blocks -%}
+        <div class="text-wrapper">
+            {% if block.settings.return_title != blank %}
+            <h4 class="title">{{block.settings.return_title}}</h4>
+            {% endif %}
+            {% if block.settings.return_description != blank %}
+            <div class="dar-des">
+                {{block.settings.return_description}}
+            </div>
+            {% endif %}
+        </div>
+        {%- endfor -%}
+        {% if section.settings.sale_header_title != blank %}
+        <h2 class="header-title">{{section.settings.sale_header_title}}</h2>
+        {% endif %}
+        {%- for block in section.blocks -%}
+        <div class="text-wrapper">
+            {% if block.settings.sale_title != blank %}
+            <h4 class="title">{{block.settings.sale_title}}</h4>
+            {% endif %}
+            {% if block.settings.sale_description != blank %}
+            <div class="dar-des">
+                {{block.settings.sale_description}}
+            </div>
+            {% endif %}
+        </div>
+        {%- endfor -%}
+        {% if section.settings.refund_header_title != blank %}
+        <h2 class="header-title">{{section.settings.refund_header_title}}</h2>
+        {% endif %}
+        {%- for block in section.blocks -%}
+        <div class="text-wrapper">
+            {% if block.settings.refund_title != blank %}
+            <h4 class="title">{{block.settings.refund_title}}</h4>
+            {% endif %}
+            {% if block.settings.refund_description != blank %}
+            <div class="dar-des">
+                {{block.settings.refund_description}}
+            </div>
+            {% endif %}
+        </div>
+        {%- endfor -%}
+    </div>
+</div>
+{% schema %}
+{
+"name": "Delivery & Returns",
+"settings":[
+{
+"type": "text",
+"id": "delivery_header_title",
+"label": "Delivery Title"
+},
+{
+"type": "text",
+"id": "return_header_title",
+"label": "Return Title"
+},
+{
+"type": "text",
+"id": "sale_header_title",
+"label": "Sell Title"
+},
+{
+"type": "text",
+"id": "refund_header_title",
+"label": "Refund Title"
+}
+],
+"blocks": [
+{
+"name": "Delivery",
+"type": "text",
+"settings": [
+{
+"type": "text",
+"id": "title",
+"label": "Title"
+},
+{
+"type": "richtext",
+"id": "description",
+"label": "Description",
+"default": "<p>Express our Delivery description.</p>"
+}
+]
+},
+{
+"name": "Returns",
+"type": "textarea",
+"settings": [
+{
+"type": "text",
+"id": "return_title",
+"label": "Title"
+},
+{
+"type": "richtext",
+"id": "return_description",
+"label": "Description",
+"default": "<p>Express our Returns description.</p>"
+}
+]
+},
+{
+"name": "sale",
+"type": "richtext",
+"settings": [
+{
+"type": "text",
+"id": "sale_title",
+"label": "Title"
+},
+{
+"type": "richtext",
+"id": "sale_description",
+"label": "Description",
+"default": "<p>Express our sale description.</p>"
+}
+]
+},
+{
+    "name": "Refund",
+    "type": "collection",
+    "settings": [
+    {
+    "type": "text",
+    "id": "refund_title",
+    "label": "Title"
+    },
+    {
+    "type": "richtext",
+    "id": "refund_description",
+    "label": "Description",
+    "default": "<p>Express our redund description.</p>"
+    }
+    ]
+    }
+]
+}
+{% endschema %}

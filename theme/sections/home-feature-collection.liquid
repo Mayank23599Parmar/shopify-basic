@@ -18,10 +18,10 @@
 {%- endcase -%}
 <div class="collection-list collection-list-{{section.id}}  {{section.settings.section_background}}">
   <div class="{% if section.settings.full %}container-fluid{% else %}container{% endif %}">
-    <ul class="flex-view space list scroll-ul">
+    <ul class="flex-view space list scroll-ul ">
       {%- for block in section.blocks -%}
         {%- assign collection = collections[block.settings.collection] -%}
-        <li class="li {{width}} {{width_xs}}">
+        <li class="li {{width}} {{width_xs}} collection-items">
           <div class="collection-image-warpper">
             <div class="product-img-frame">
               {%- render 'srcset', src_name:section.settings.collection_bg_img,src_alt:collection.title -%}

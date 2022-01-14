@@ -33,7 +33,7 @@
             <ul class="flex-view space list scroll-ul">
                 {%- for product in collection.products -%}
                 {%- assign productTitle = product.metafields.product.productdec -%}
-                <li class="li {{width}} {{width_xs}}">
+                <li class="li {{width}} {{width_xs}} collection-items">
                     <div class="collection-image-warpper">
                         <div class="product-img-frame">
                             {%- render 'srcset', src_name:section.settings.collection_bg_img,src_alt:collection.title

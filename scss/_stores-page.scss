@@ -1,0 +1,45 @@
+.store-page {
+    .store-page-wrapper {
+        position: relative;
+        padding: 150px 30px 50px;
+        @include mq("phone") {
+            padding: 100px 15px 50px;
+        }
+        .header-title {
+            color: #000;
+
+            font-size: 46px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            @include mq("phone") {
+                margin-bottom: 20px;
+                font-size: 26px;
+            }
+        }
+        .text-wrapper {
+            .adress {
+                margin: 0px;
+                font-size: 20px;
+                text-align: justify;
+                color: #000;
+                margin-bottom: 15px;
+                @include mq("phone") {
+                    font-size: 14px;
+                }
+            }
+            .map-url {
+                a {
+                    margin: 0;
+                    font-size: 20px;
+                    text-align: justify;
+                    color: #6d5715;
+                    margin-bottom: 15px;
+                    @include mq("phone") {
+                        margin: 0;
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+}

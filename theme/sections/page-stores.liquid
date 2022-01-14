@@ -1,0 +1,55 @@
+<div class="store-page">
+    <div class="store-page-wrapper">
+        {% if section.settings.store_page_title != blank %}
+        <h2 class="header-title">{{section.settings.store_page_title}}</h2>
+        {% endif %}
+
+        {%- for block in section.blocks -%}
+        <div class="text-wrapper">
+            {% if block.settings.address != blank %}
+            <p class="adress">{{block.settings.address}}</p>
+            {% endif %}
+            {% if block.settings.adreess_text != blank %}
+            <div class="map-url">
+                <a href={{block.settings.adreess_text}} target="_blank">{{block.settings.adreess_text}}</a>
+            </div>
+            {% endif %}
+        </div>
+        {%- endfor -%}
+    </div>
+</div>
+{% schema %}
+{
+"name": "Stores",
+"settings":[
+{
+"type": "text",
+"id": "store_page_title",
+"label": "Page Title"
+}
+],
+"blocks": [
+{
+"name": "Address and map",
+"type": "text",
+"settings": [
+{
+"type": "text",
+"id": "address",
+"label": "Address"
+},
+{
+"type": "text",
+"id": "adreess_text",
+"label": "Address URL label"
+},
+{
+    "type": "text",
+    "id": "adreess_url",
+    "label": "Address URL"
+    }
+]
+}
+]
+}
+{% endschema %}

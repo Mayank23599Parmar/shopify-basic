@@ -144,3 +144,13 @@ export const updateHeaderCount = async () =>{
   }
   
 }
+export const manageHeight = (selector) =>{
+  var max = 0;
+  selector.forEach((el)=>{
+      if (el.offsetHeight > max) {
+        max = el.offsetHeight;
+      }
+    }
+  );
+  return max;
+}

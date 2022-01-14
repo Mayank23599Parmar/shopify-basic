@@ -1,0 +1,30 @@
+<div class="tac-page">
+    <div class="tac-page-wrapper">
+        <div class="text-wrapper">
+            <p class="title">{{section.settings.title}}</p>
+            <div class="tac-des">
+                {{section.settings.description}}
+            </div>
+          
+          
+        </div>
+    </div>
+</div>
+{% schema %}
+{
+  "name": "Terms and Conditions",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Express our Terms and Conditions description.</p>"
+    }
+  ]
+}
+{% endschema %}

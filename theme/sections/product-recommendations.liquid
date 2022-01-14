@@ -20,13 +20,13 @@
 <div class="related-product-list collection-list-{{section.id}} ">
   <div class="{% if section.settings.full %}container-fluid{% else %}container{% endif %}">
       <h4 class=" title text-center">{{section.settings.title}}</h4>
-    <ul class="flex-view space list scroll-ul">
+    <ul class="flex-view space list scroll-ul collection-list">
       {%- for product_handel in recommendation_products -%}
         {%- assign products = all_products[product_handel] -%}
         {% if products != blank %}
             
         
-        <li class="li {{width}} {{width_xs}}">
+        <li class="li {{width}} {{width_xs}}  collection-items">
           <div class="collection-image-warpper">
             <div class="product-img-frame">
               {%- render 'srcset', src_name:section.settings.Products_bg_img,src_alt:products.title -%}
