@@ -1,5 +1,9 @@
 <div class="about-page">
+  <div class="img">
+    <img src="https://cdn.shopify.com/s/files/1/0618/2535/1909/files/beach-overhead.1484b6ab.png?v=1641927684" alt="{{section.settings.about_img.alt}}"/>
+</div>
     <div class="about-page-wrapper">
+    
         <div class="text-wrapper">
             <h1 class="title">{{section.settings.title}}</h1>
             <div class="about-des">
@@ -13,15 +17,6 @@
         </div>
     </div>
 </div>
-<style>
-    .about-page{
-        background-image: url('{{ section.settings.about_page_img }}');
-        background-repeat: no-repeat;
-        background-size: 100% 100%;
-    width: 100%;
-    height: 100vh;
-    }
-</style>
 {% schema %}
 {
   "name": "About  page",
@@ -37,11 +32,6 @@
       "label": "Description",
       "default": "<p>Express our story description.</p>"
     },
-   {
-     "type": "text",
-     "id": "about_page_img",
-     "label": "Page background image"
-   },
    {
     "type": "text",
     "id": "about_btn",

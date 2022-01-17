@@ -1,6 +1,6 @@
 /*================ Font-family ================*/
-$head_font: var(--main-header-font);
-$base_font: var(--main-body-font);
+$head_font: "Montserrat";
+$base_font: "Montserrat";
 $base_font_size: var(--base-font-size);
 @media (max-width: 767px) {
  $base_font_size: var(--base-font-size-mob);

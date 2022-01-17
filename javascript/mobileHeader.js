@@ -23,6 +23,9 @@ class mobileMenu {
     if( document.querySelectorAll(".mobile-menu-btn.about").length > 0){
       mobilDrwerButton= document.querySelectorAll(".mobile-menu-btn.about")
     }
+    if( document.querySelectorAll(".mobile-menu-btn.terms-and-conditions").length > 0){
+      mobilDrwerButton= document.querySelectorAll(".mobile-menu-btn.terms-and-conditions")
+    }
     // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
     function myFunction() {
       if (window.pageYOffset > sticky) {

@@ -20,15 +20,11 @@
       {{ form.errors | default_errors }}
   
       {% assign name_attr = 'contact.form.name' | t | handle %}
-      <input type="text" id="ContactFormName" name="contact[{{ 'contact.form.name' | t }}]" placeholder="{{ 'contact.form.name' | t }}" autocapitalize="words" value="{% if form[name_attr] %}{{ form[name_attr] }}{% elsif customer %}{{ customer.name }}{% endif %}">
+      <input type="text"  name="contact[first_name]" id="first-name" placeholder="First Name" autocapitalize="words">
+      <input type="text" name="contact[last_name]" id="last-name"  placeholder="Last Name"/>
       <input type="email" id="ContactFormEmail" name="contact[email]" placeholder="{{ 'contact.form.email' | t }}" autocorrect="off" autocapitalize="off" value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}">
-  
-      {% assign name_attr = 'contact.form.phone' | t | handle %}
-      <input type="tel" id="ContactFormPhone" name="contact[{{ 'contact.form.phone' | t }}]" placeholder="{{ 'contact.form.phone' | t }}" pattern="[0-9\-]*" value="{% if form[name_attr] %}{{ form[name_attr] }}{% elsif customer %}{{ customer.phone }}{% endif %}">
-      <textarea rows="10" id="ContactFormMessage" name="contact[{{ 'contact.form.message' | t }}]" placeholder="{{ 'contact.form.message' | t }}">{% if form.body %}{{ form.body }}{% endif %}</textarea>
-  
-      <input type="submit" class="btn right" value="{{ 'contact.form.send' | t }}">
-  
+      <input type="text" id="ContactFormMessage" name="contact[{{ 'contact.form.message' | t }}]" placeholder="Country">{% if form.body %}{{ form.body }}{% endif %}
+      <input type="submit" class="btn right" value="Submit">
     {% endform %}
     </div>
 </div>

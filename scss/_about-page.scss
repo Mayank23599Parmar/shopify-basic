@@ -1,11 +1,24 @@
 .about-page {
+    min-height: 100vh;
+    background: #000;
+    .img {
+        display: block;
+        img {
+            position: fixed;
+            top: 0;
+            left: 0;
+            object-fit: cover;
+            max-width: inherit;
+            opacity: .6;
+        }
+    }
     .about-page-wrapper {
         position: relative;
         margin: 0 auto;
         padding: 250px 0 100px;
         max-width: 800px;
         width: 100%;
-        @include mq("phone"){
+        @include mq("phone") {
             max-width: 100%;
             padding: 125px 0 100px;
             width: 80%;
@@ -19,11 +32,11 @@
                 text-transform: uppercase;
                 text-align: center;
                 letter-spacing: 0.25em;
-        @include mq("phone"){
-            margin-bottom: 15px;
-                padding-bottom: 10px;
-                font-size: 18px;
-        }
+                @include mq("phone") {
+                    margin-bottom: 15px;
+                    padding-bottom: 10px;
+                    font-size: 18px;
+                }
             }
             p {
                 margin: 0 0 20px;
@@ -31,26 +44,35 @@
                 text-align: justify;
                 line-height: 2em;
                 color: #ffff;
-                @include mq("phone"){
+                @include mq("phone") {
                     margin: 0 0 10px;
-                        font-size: 12px;
+                    font-size: 12px;
                 }
             }
-          
-            .btn-wrapper{
+
+            .btn-wrapper {
                 text-align: center;
                 width: 100%;
-                .about-btn{
-                    display: inline-block;
+                max-width: 300px;
+                margin: 0 auto;
+                margin-top: 70px;
+                @include mq("phone"){
+                    width: 100%;
+                    max-width: 200px;
+                    margin: 0 auto;
+                    margin-top: 50px;  
+                }
+                .about-btn {
+                    display: block;
                     padding: 20px 30px;
                     background: #111;
                     color: #fff;
                     font-size: 12px;
                     font-weight: 700;
-                    letter-spacing: .25em;
-                    transition-duration: .5s;
+                    letter-spacing: 0.25em;
+                    transition-duration: 0.5s;
                     cursor: pointer;
-                    @include mq("phone"){
+                    @include mq("phone") {
                         padding: 18px 28px;
                     }
                 }

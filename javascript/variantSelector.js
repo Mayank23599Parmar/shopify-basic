@@ -2,10 +2,10 @@ import { formatMoney, handleize } from "./helper";
 
 class VariantSelector {
     constructor(obj) {
-        console.log(obj);
         this.parent = obj.parent;
         this.productJson = obj.productJson;
         this.productSwatchAction = obj.productSwatchAction;
+        this.productSliderAction = obj.productSliderAction;
     };
 
     selectChange = () => {
@@ -19,9 +19,7 @@ class VariantSelector {
                 obj.value = el.value;
                 values.push(obj);
             });
-            console.log(values, "valuesvalues");
             let variant = this.findVariant(values);
-            console.log(variant, 'variant');
             if (variant) {
                 const singleVariant = productCard.querySelector('.single-variants');
                 singleVariant.value = variant.id;
@@ -32,15 +30,11 @@ class VariantSelector {
         }
     }
     findVariant(values) {
-        console.log(values, "values");
         let variants = this.productJson.variants;
 
         let size = values.length;
         for (let i = 0; i < variants.length; i++) {
             let variant = variants[i];
-            console.log(handleize(variant[values[0].index]), values[0].value);
-            console.log(handleize(variant[values[1].index]), values[1].value);
-            console.log(variant[values[0].index] == values[0].value, handleize(variant[values[1].index]) == values[1].value, "variants");
             if (size == 1) {
                 if (handleize(variant[values[0].index]) == handleize(values[0].value)) {
                     return variant;
@@ -58,28 +52,44 @@ class VariantSelector {
             }
         }
     }
-     getVarintInfo=()=>{
+    getVarintInfo = () => {
         const that = this;
         let variant = that.variant;
-        if(variant)
-        {
+        if (variant) {
             return variant
         }
-     }
+    }
     productCallback() {
         const that = this;
         let variant = that.variant;
         parent = that.parent
+        console.log(parent," $productImg");
+       let  $productImg = $(".ProductImages", parent);
+       
         if (variant) {
+            if (variant.featured_image) {
+                let imgObj = variant.featured_image;
+                let new_img = imgObj.id;
+                new_img = ".id_" + new_img;
+                let index = $productImg.find(new_img).attr("data-index");
+                if (!cn(index) && that.productSliderAction) {
+                    console.log("indes");
+                  index = parseInt(index) - 1;
+                  that.productSliderAction(index);
+                }
+              }
             for (let i = 0, length = variant.options.length; i < length; i++) {
                 let option = variant.options[i];
                 let swatch = parent.querySelector(`.swatch-element[data-value="${option}"]`);
                 that.productSwatchAction(swatch, false);
             }
-            let produtPice=document.querySelector(".product-price")
-            produtPice.innerHTML=formatMoney(variant.price)
-            let productSku=document.querySelector(".product-dec span");
-            productSku.innerHTML=variant.sku
+            let produtPice = document.querySelector(".product-price")
+            produtPice.innerHTML = formatMoney(variant.price)
+            let productSku = document.querySelector(".product-dec span");
+            if (productSku) {
+                productSku.innerHTML = variant.sku
+            }
+
         }
     }
     queryString(value) {

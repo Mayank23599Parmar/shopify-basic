@@ -3,7 +3,7 @@
       <div class="logo-side side">
         <div class="site-logo">
           <a href="/" itemprop="url">
-              {% if template =="collection"  or template =="index" or page.handle == "about" %}
+              {% if template =="collection"  or template =="index" or page.handle == "about" or page.handle == "terms-and-conditions" %}
               {% if section.settings.site_logo != blank %}
               <img itemprop="logo"  src="{{section.settings.site_logo | img_url: 'large' | format: 'png'}}" alt="{{shop.name}}">
             {% else %}

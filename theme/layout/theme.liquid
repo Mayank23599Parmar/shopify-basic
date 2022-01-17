@@ -4,6 +4,7 @@
     {%- capture cfh -%}
       {{ content_for_header}}
     {%- endcapture -%}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&family=Yeseva+One&display=swap">
     {% render 'head' cfh:cfh %}
   </head>
   <body class="template-{{ template | split: '.' | first }} theme-unload">

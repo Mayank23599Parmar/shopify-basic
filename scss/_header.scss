@@ -20,9 +20,24 @@
     }
   }
 }
+
 header.main-header {
   position: relative;
   top: 30px;
+  &.terms-and-conditions {
+    position: absolute;
+    z-index: 999;
+    top: 35px;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.5), transparent);
+    transition-duration: 0.5s;
+    @include mq("phone") {
+      top: 0;
+      height: 125px;
+    }
+  }
   @include mq("phone") {
     position: initial;
     top: 0;
@@ -168,6 +183,20 @@ header.main-header {
             }
           }
         }
+        &.terms-and-conditions {
+          .image-balck {
+            display: none;
+            &.active {
+              display: block;
+            }
+          }
+          .image-white {
+            display: none;
+            &.active {
+              display: block;
+            }
+          }
+        }
       }
     }
 
@@ -224,6 +253,18 @@ header.main-header {
         }
       }
       &.about {
+        svg {
+          width: 30px;
+          height: 24px;
+          fill: #fff;
+          &.active {
+            width: 30px;
+            height: 24px;
+            fill: #000;
+          }
+        }
+      }
+      &.terms-and-conditions {
         svg {
           width: 30px;
           height: 24px;

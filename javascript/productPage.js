@@ -1,17 +1,17 @@
 
 import VariantSelector from './variantSelector';
-import { findSiblings ,addToCart} from './helper';
+import { findSiblings, addToCart } from './helper';
 class Product {
     constructor(parent) {
         if (!parent) {
             return;
         }
+        this.sliderElement;
         this.parent = document.querySelector(parent);
         this.productJson = null;
         this.init();
     }
     initiateProductVariant = () => {
-        console.log(this.parent, "this.parent");
         const jsonElement = this.parent.querySelector('.product-json');
         if (jsonElement) {
             this.productJson = JSON.parse(jsonElement.innerText);
@@ -21,7 +21,8 @@ class Product {
             this.variantSelector = new VariantSelector({
                 parent: this.parent,
                 productJson: this.productJson,
-                productSwatchAction: this.productSwatchAction
+                productSwatchAction: this.productSwatchAction,
+                productSliderAction: this.productSliderAction
             });
 
             /* First auto call when page/quickview load */
@@ -33,8 +34,6 @@ class Product {
             return null;
         }
         let siblings = findSiblings(selector);
-        console.log(selector, "selector");
-        console.log(siblings, "siblings");
         siblings.forEach((item) => {
             item.classList.remove('active');
         })
@@ -55,39 +54,40 @@ class Product {
 
 
     clickEvent = () => {
+        
         const swatches = this.parent.querySelectorAll('.swatch-element');
         swatches.forEach((swatch) => {
             swatch.addEventListener('click', (e) => {
                 this.productSwatchAction(e.currentTarget, true);
             })
         })
-        let variant=this.variantSelector.getVarintInfo()
+        let variant = this.variantSelector.getVarintInfo()
         let formData;
         // add to cart action
-        let addTocartButton= document.querySelector(".add-to-cart")
-        addTocartButton.addEventListener("click",(element)=>{
-             formData={
-                quantity:1,
-                id:variant.id
+        let addTocartButton = document.querySelector(".add-to-cart")
+        addTocartButton.addEventListener("click", (element) => {
+            formData = {
+                quantity: 1,
+                id: variant.id
 
             }
             addTocartButton.innerText = "Adding..."
-            addToCart(formData,()=>{
-                addTocartButton.innerText="Add to cart"
+            addToCart(formData, () => {
+                addTocartButton.innerText = "Add to cart"
             })
         })
         //produt buy now button action
-        let ProductBuyNow= document.querySelector(".buy-now")
-        ProductBuyNow.addEventListener("click",(element)=>{
-                formData={
-                quantity:1,
-                id:variant.id
+        let ProductBuyNow = document.querySelector(".buy-now")
+        ProductBuyNow.addEventListener("click", (element) => {
+            formData = {
+                quantity: 1,
+                id: variant.id
 
             }
             ProductBuyNow.innerText = "Adding..."
-            addToCart(formData,()=>{
-                addTocartButton.innerText="Add to cart";
-                window.location.href="/checkout"
+            addToCart(formData, () => {
+                addTocartButton.innerText = "Add to cart";
+                window.location.href = "/checkout"
             })
         })
     }
@@ -99,9 +99,9 @@ class Product {
                 this.variantSelector.selectChange();
             })
         });
-        
-    }    
-    createSlider=()=>{
+
+    }
+    createSlider = () => {
         const parent = this.parent;
         const that = this;
         let selector = $(".ProductImages .list", parent);
@@ -109,27 +109,42 @@ class Product {
         let thumbLength = $(".single-thumb", parent).length;
         let slidesToShow = 5;
         if (thumbLength == 2) {
-          slidesToShow = 2;
+            slidesToShow = 2;
         }
         if ($(selector).length > 0 && $(".single-image", selector).length > 1) {
-          that.sliderElement = $(selector).slick({
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            asNavFor: thumbBlock,
-            dots: false,
-            arrows: false,
-            infinite:false
-          });
-          $(thumbBlock).slick({
-            infinite: true,
-            slidesToShow: slidesToShow,
-            slidesToScroll: 1,
-            asNavFor: selector,
-            arrows: false,
-            focusOnSelect: true,
-            infinite:false
-          });
+            that.sliderElement = $(selector).not('.slick-initialized').slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                asNavFor: thumbBlock,
+                dots: false,
+                arrows: false,
+                infinite: false
+            });
+            $(thumbBlock).not('.slick-initialized').slick({
+                infinite: true,
+                slidesToShow: slidesToShow,
+                slidesToScroll: 1,
+                asNavFor: selector,
+                arrows: false,
+                focusOnSelect: true,
+                infinite: false
+            });
         }
+    }
+    productSliderAction = index => {
+        const that = this;
+        const parent = this.parent;
+        let selector = $(".ProductImages .list", parent);
+        this.sliderElement = $(selector).select(index)
+    }
+    changeSlideImage = () => {
+        // Change main slider based on thumb image click
+        let thumbs = this.parent.querySelectorAll('.thumb-block .thumb .single-thumb');
+        thumbs.forEach((thumb, index) => {
+            thumb.addEventListener('click', (e) => {
+                this.productSliderAction(index);
+            })
+        })
     }
     init = () => {
         this.initiateProductVariant();
