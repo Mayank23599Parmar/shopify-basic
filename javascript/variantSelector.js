@@ -73,7 +73,7 @@ class VariantSelector {
                 new_img = ".id_" + new_img;
                 let index = $productImg.find(new_img).attr("data-index");
                 if (!cn(index) && that.productSliderAction) {
-                    console.log("indes");
+                    console.log(index,"indes");
                   index = parseInt(index) - 1;
                   that.productSliderAction(index);
                 }

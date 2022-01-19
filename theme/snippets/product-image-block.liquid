@@ -9,7 +9,7 @@
             {% for image in product.images %}
 
 
-            <div class="single-thumb">
+            <div class="single-thumb" data-var="{{image.id}}">
               {%- render 'srcset',src_name:image.src,src_alt:image.alt,src_class:'product-image' -%}
             </div>
 
