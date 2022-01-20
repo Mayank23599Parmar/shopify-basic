@@ -54,13 +54,13 @@ class Product {
 
 
     clickEvent = () => {
-        
+
         const swatches = this.parent.querySelectorAll('.swatch-element');
         swatches.forEach((swatch) => {
             swatch.addEventListener('click', (e) => {
                 this.productSwatchAction(e.currentTarget, true);
-                let variant = this.variantSelector.getVarintInfo();
-                var imageID = variant.featured_image.id
+                let MasterVariant = this.variantSelector.getVarintInfo();
+                var imageID = MasterVariant.featured_image.id
                 var newImg = $(`.single-thumb[data-var=${imageID}]`);
                 var Index = parseInt(newImg.attr("data-slick-index"));
                 $(".thumb").slick('slickGoTo', Index)
@@ -68,6 +68,7 @@ class Product {
         })
         let formData;
         // add to cart action
+        let variant = this.variantSelector.getVarintInfo();
         let addTocartButton = document.querySelector(".add-to-cart")
         addTocartButton.addEventListener("click", (element) => {
             formData = {
@@ -139,7 +140,7 @@ class Product {
         const that = this;
         const parent = this.parent;
         let selector = $(".ProductImages .list", parent);
-     //   this.sliderElement = $(selector).slick("slickGoTo",index);
+        //   this.sliderElement = $(selector).slick("slickGoTo",index);
     }
     changeSlideImage = () => {
         // Change main slider based on thumb image click

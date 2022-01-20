@@ -1,92 +1,112 @@
 <!-- mobile-menu -->
 <div class="mobile-back-drop"></div>
 <div id="mobile-drawer">
-    <ul class="ul nav clearfix">
-      <li class="li">
-        <div class="link">
-          <a href="#" class="opacity">
-            login
-          </a>
+  <ul class="ul nav clearfix">
+    <li class="li">
+      <div class="link">
+        <a href="#" class="opacity login">
+          login
+        </a>
+      </div>
+    </li>
+    <li class="li">
+      <div class="link">
+        <div class="launguage-selector">
+          {% form 'localization' %}
+          <select name="language">
+            {% for language in localization.available_languages %}
+            <option {% if language.iso_code==localization.language.iso_code %} aria-current="true" {% endif %}
+              hreflang="{{ language.iso_code }}" lang="{{ language.iso_code }}" data-value="{{ language.iso_code }}">
+              {{ language.endonym_name | capitalize }}
+
+            </option>
+            {% endfor %}
+          </select>
+          <input type="hidden" name="language_code" value="{{ localization.language.iso_code }}">
+          {% endform %}
         </div>
-      </li>
-      <li class="li">
-        <div class="link">
-          <div class="multi-currency">
-            {% form 'currency' %}
-            <label>Currency</label>
-              <select name="currency">
-                {% for currency in shop.enabled_currencies %}
-                  {% if currency == cart.currency %}
-                    <option selected="true" value="{{currency.iso_code}}">{{currency.iso_code}} {{ currency.symbol }}</option>
-                  {% else %}
-                    <option value="{{currency.iso_code}}">{{currency.iso_code}} {{ currency.symbol }}</option>
-                  {% endif %}
-                {% endfor %}
-              </select>
-            {% endform %}
-          </div>
+      </div>
+    </li>
+    <li class="li">
+      <div class="link">
+        <div class="multi-currency">
+          {% form 'currency' %}
+          <label>Currency</label>
+          <select name="currency">
+            {% for currency in shop.enabled_currencies %}
+            {% if currency == cart.currency %}
+            <option selected="true" value="{{currency.iso_code}}">{{currency.iso_code}} {{ currency.symbol }}</option>
+            {% else %}
+            <option value="{{currency.iso_code}}">{{currency.iso_code}} {{ currency.symbol }}</option>
+            {% endif %}
+            {% endfor %}
+          </select>
+          {% endform %}
         </div>
-      </li>
-      <li class="li">
-        <div class="link">
-          <a href="#" class="cart-mobile opacity">
-            Cart
-            <div class="side-cart cart"><span class="cart-count">{{cart.item_count}}</span></div>
-            
-          </a>
-        </div>
-      </li>
-      {% for link in linklists[section.settings.main_menu].links  %}
-        {% if link.links == blank %}
-          <li class="li{% if link.active %} active{% endif %}">
+      </div>
+    </li>
+    <li class="li">
+      <div class="link">
+        <a href="#" class="cart-mobile opacity">
+          Cart
+          <div class="side-cart cart"><span class="cart-count">{{cart.item_count}}</span></div>
+
+        </a>
+      </div>
+    </li>
+    {% for link in linklists[section.settings.main_menu].links %}
+    {% if link.links == blank %}
+    <li class="li{% if link.active %} active{% endif %}">
+      <div class="link">
+        <a href="{{link.url}}">
+          {{link.title}}
+        </a>
+      </div>
+    </li>
+    {% else %}
+    <li class="has_child li{% if link.active %} active{% endif %}">
+      <div class="link">
+        <a {% unless link.url==blank %} href="{{link.url}}{% endunless %}">
+          {{link.title}}
+        </a>
+      </div>
+
+      <div class="child-menu">
+        <ul class="child-ul">
+          {% for childlink in link.links %}
+          {% if childlink.links != blank %}
+          <li class="has_child child-li">
             <div class="link">
-              <a href="{{link.url}}">
-                {{link.title}}
-              </a>
+              <a {% unless childlink.url==blank %} href="{{ childlink.url }}{% endunless %}">{{ childlink.title | escape
+                }}</a>
+              <span class="icon-wrap">
+                <span>+</span>
+                <span class="hide">-</span>
+              </span>
+            </div>
+            <ul class="child-menu third-menu">
+              {% for subchildlink in childlink.links %}
+              <li>
+                <div class="link">
+                  <a href="{{ subchildlink.url }}">{{ subchildlink.title | escape }}</a>
+                </div>
+              </li>
+              {% endfor %}
+            </ul>
+          </li>
+          {% else %}
+          <li class="child-li">
+            <div class="link">
+              <a {% unless childlink.url==blank %} href="{{ childlink.url }}{% endunless %}">{{ childlink.title | escape
+                }}</a>
             </div>
           </li>
-        {% else %}
-          <li class="has_child li{% if link.active %} active{% endif %}">
-            <div class="link">
-              <a {% unless link.url == blank %} href="{{link.url}}{% endunless %}">
-                {{link.title}}
-              </a>
-            </div>
-  
-            <div class="child-menu">
-              <ul class="child-ul">
-                {% for childlink in link.links %}
-                  {% if childlink.links != blank %}
-                    <li class="has_child child-li">
-                      <div class="link">
-                        <a {% unless childlink.url == blank %} href="{{ childlink.url }}{% endunless %}">{{ childlink.title | escape }}</a>
-                        <span class="icon-wrap">
-                          <span>+</span>
-                          <span class="hide">-</span>
-                        </span>
-                      </div>
-                      <ul class="child-menu third-menu">
-                        {% for subchildlink in childlink.links %}
-                          <li>
-                            <div class="link">
-                              <a href="{{ subchildlink.url }}">{{ subchildlink.title | escape }}</a>
-                            </div>
-                          </li>
-                        {% endfor %}
-                      </ul>
-                    </li>
-                  {% else %}
-                    <li class="child-li">
-                      <div class="link">
-                        <a {% unless childlink.url == blank %} href="{{ childlink.url }}{% endunless %}">{{ childlink.title | escape }}</a>
-                      </div>
-                    </li>
-                  {% endif %}
-                {% endfor %}
-              </ul>
-            </div>
-          </li>
-        {% endif %}
-      {% endfor %}
-    </ul>
-  </div>
+          {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+    </li>
+    {% endif %}
+    {% endfor %}
+  </ul>
+</div>

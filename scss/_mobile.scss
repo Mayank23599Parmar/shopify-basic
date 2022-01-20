@@ -7,7 +7,7 @@
   @include transform(translateX(-100%));
   overflow: auto;
   z-index: 110;
-  background: $accent_color;
+  background: #111;
   padding: 30px 0;
   @include transition(0.35s cubic-bezier(0.46, 0.01, 0.32, 1));
   @include mq("phone") {
@@ -24,14 +24,62 @@
       text-align: left;
       cursor: pointer;
       position: relative;
+      &.has_child {
+        display: block;
+        padding: 15px 0px;
+        width: auto;
+        height: auto;
+        line-height: normal;
+        .link {
+          a {
+            text-transform: uppercase;
+            font-weight: bolder;
+          }
+        }
+      }
+      .child-menu {
+        ul {
+          li {
+            padding: 0;
+            margin-left: -10px;
+            .link {
+              a {
+                text-transform: capitalize;
+                font-weight: 400;
+              }
+            }
+          }
+        }
+      }
       .link {
         text-decoration: none;
         display: block;
-        .multi-currency {
+
+        .launguage-selector {
+          padding: 0;
           form {
             @include flexbox();
             @include align-items(center);
             padding: 10px 10px 0px 15px;
+
+            select {
+              display: block;
+              color: #fff;
+              font-size: 14px;
+              border: none;
+              padding: 0;
+              margin-left: -3px;
+              font-size: 12px;
+            }
+          }
+        }
+        .multi-currency {
+          padding: 0;
+          form {
+            @include flexbox();
+            @include align-items(center);
+            padding: 10px 10px 0px 15px;
+            font-size: 12px;
             label {
               color: #fff;
               font-size: 12px;
@@ -57,11 +105,23 @@
           opacity: 0.7;
           font-size: 14px;
           text-transform: capitalize;
+          text-transform: uppercase;
+          font-weight: bolder;
+          &.opacity {
+            opacity: 1;
+          }
+          &.login {
+            font-size: 12px;
+            padding-left: 15px;
+            padding-bottom: 0;
+          }
           &.cart-mobile {
+            padding: 10px 15px;
             @include flexbox();
             @include align-items(center);
             gap: 25px;
             grid-gap: 25px;
+            font-size: 12px;
             .side-cart {
               right: 15px;
               width: 20px;
@@ -70,10 +130,12 @@
               border-radius: 50%;
               color: #fff;
               text-align: center;
+              font-size: 12px;
               span {
                 color: #000;
                 text-align: center;
                 font-size: 12px;
+                line-height: 20px;
               }
             }
           }
