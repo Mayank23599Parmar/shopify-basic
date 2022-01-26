@@ -13,4 +13,3 @@ require ("./variantSelector")
 require("./productPage");
 require("./CollectionPage");
 require('./cart-page');
-require("./Account")
