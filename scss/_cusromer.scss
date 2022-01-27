@@ -1,8 +1,184 @@
-.login_page{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    border: 0.25em solid #000;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+#login_page {
+    position: relative;
+    margin: 400px 0;
+    #CustomerLoginForm {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        @include transform(translate(-50%, -50%));
+        width: 100%;
+        @include mq("phone"){
+            width: 90%;
+        }
+        form {
+            .errors{
+                margin-bottom: 12px;
+                text-align: center;
+                ul{
+                    
+                    li{
+                    color: red;
+                    font-size: 15px;
+                    }
+                }
+            }
+            h1 {
+                text-align: center;
+                text-transform: uppercase;
+                color: #000;
+                font-size: 30px;
+                margin-bottom: 30px;
+            }
+            .field {
+                input {
+                    display: block;
+                    padding: 10px;
+                    width: calc(100% - 22px);
+                    margin: 0 auto;
+                    margin-bottom: 20px;
+                    font-size: 20px;
+                }
+            }
+            .submit-button {
+                cursor: pointer;
+                input {
+                    width: calc(100% - 22px);
+                    background: #8c7232;
+                    color: #fff;
+                    padding: 15px;
+                    display: block;
+                    margin: 0 auto;
+                    font-size: 20px;
+                    text-transform: capitalize;
+                }
+                margin-bottom: 20px;
+            }
+            .create-account {
+                @include flexbox();
+                @include align-items(center);
+                @include justify-content(center);
+                gap: 5px;
+                p {
+                    font-size: 12px;
+                    margin-bottom: 0;
+                }
+                span{
+                    a{
+                        color: #8c7232;
+                        font-size: 12px;
+                        margin-bottom: 0;
+                        
+                    }
+                  
+                }
+            }
+            .recover-password{
+                @include flexbox();
+                @include align-items(center);
+                @include justify-content(center);
+                gap: 5px;
+                p {
+                    font-size: 12px;
+                    margin-bottom: 0;
+                }
+                a{
+                    color: #8c7232;
+                    font-size: 12px;
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}
+#register_page{
+    position: relative;
+    margin: 400px 0;
+    .form-vertical {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        @include transform(translate(-50%, -50%));
+        width: 60%;
+        @include mq("phone"){
+            width: 90%;
+        }
+        form {
+            .errors{
+                margin-bottom: 12px;
+                text-align: center;
+                ul{
+                    
+                    li{
+                    color: red;
+                    font-size: 15px;
+                    }
+                }
+            }
+            h1 {
+                text-align: center;
+                text-transform: uppercase;
+                color: #000;
+                font-size: 30px;
+                margin-bottom: 35px;
+            }
+            .field {
+                input {
+                    display: block;
+                    padding: 10px;
+                    width: calc(100% - 22px);
+                    margin: 0 auto;
+                    margin-bottom: 20px;
+                    font-size: 20px;
+                }
+            }
+            .submit-button {
+                cursor: pointer;
+                input {
+                    width: calc(100% - 22px);
+                    background: #8c7232;
+                    color: #fff;
+                    padding: 15px;
+                    display: block;
+                    margin: 0 auto;
+                    font-size: 20px;
+                    text-transform: capitalize;
+                }
+                margin-bottom: 20px;
+            }
+            .create-account {
+                @include flexbox();
+                @include align-items(center);
+                @include justify-content(center);
+                gap: 5px;
+                p {
+                    font-size: 12px;
+                    margin-bottom: 0;
+                }
+                span{
+                    a{
+                        color: #8c7232;
+                        font-size: 12px;
+                        margin-bottom: 0;
+                        
+                    }
+                  
+                }
+            }
+            .recover-password{
+                @include flexbox();
+                @include align-items(center);
+                @include justify-content(center);
+                gap: 5px;
+                p {
+                    font-size: 12px;
+                    margin-bottom: 0;
+                }
+                a{
+                    color: #8c7232;
+                    font-size: 12px;
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
 }

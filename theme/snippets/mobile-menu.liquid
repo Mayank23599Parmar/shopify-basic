@@ -1,12 +1,15 @@
 <!-- mobile-menu -->
-<div class="mobile-back-drop"></div>
+<div class="mobile-back-drop" style="height: 100%;"></div>
 <div id="mobile-drawer">
   <ul class="ul nav clearfix">
     <li class="li">
       <div class="link">
-        <a href="#" class="opacity login">
-          login
-        </a>
+        {% if customer %}
+        <a href="/account">My Account</a>
+        {% else %}
+        <a href="/account/login">Login</a>
+        {% endif %}
+  
       </div>
     </li>
     <li class="li">

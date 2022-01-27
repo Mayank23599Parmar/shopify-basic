@@ -1,45 +1,51 @@
 <div class="announcement-bar-wrapper">
-    <div class="announce-bar">
-        <div class="section">
-            <a href="#">Login</a>
-            <div class="launguage-selector">
-                    {% form 'localization' %}
-                    <select name="language">
-                          {% for language in localization.available_languages %}
-                              <option {% if language.iso_code == localization.language.iso_code %} aria-current="true"{% endif %} hreflang="{{ language.iso_code }}" lang="{{ language.iso_code }}" data-value="{{ language.iso_code }}">
-                                {{ language.endonym_name | capitalize }}
-                             
-                              </option>
-                          {% endfor %}
-                    </select>
-                        <input type="hidden" name="language_code" value="{{ localization.language.iso_code }}">
-                    {% endform %}      
-            </div>
-        </div>
-        <div class="section">
-           <a href="{{settings.announce_url}}">
-             {{settings.announce_text}}
-           </a>
-        </div>
-       <div class="section">
-        <div class="multi-currency">
-          {% form 'currency' %}
-          <label>Currency</label>
-            <select name="currency">
-              {% for currency in shop.enabled_currencies %}
-                {% if currency == cart.currency %}
-                  <option selected="true" value="{{currency.iso_code}}">{{currency.iso_code}} {{ currency.symbol }}</option>
-                {% else %}
-                  <option value="{{currency.iso_code}}">{{currency.iso_code}} {{ currency.symbol }}</option>
-                {% endif %}
-              {% endfor %}
-            </select>
-          {% endform %}
-        </div>
-        <a href="/cart" class="cart-mobile opacity">
-          Cart
-          <div class="side-cart cart"><span class="cart-count">{{cart.item_count}}</span></div> 
-        </a>
-       </div>
+  <div class="announce-bar">
+    <div class="section">
+      {% if customer %}
+      <a href="/account">My Account</a>
+      {% else %}
+      <a href="/account/login">Login</a>
+      {% endif %}
+
+      <div class="launguage-selector">
+        {% form 'localization' %}
+        <select name="language">
+          {% for language in localization.available_languages %}
+          <option {% if language.iso_code==localization.language.iso_code %} aria-current="true" {% endif %}
+            hreflang="{{ language.iso_code }}" lang="{{ language.iso_code }}" data-value="{{ language.iso_code }}">
+            {{ language.endonym_name | capitalize }}
+
+          </option>
+          {% endfor %}
+        </select>
+        <input type="hidden" name="language_code" value="{{ localization.language.iso_code }}">
+        {% endform %}
+      </div>
     </div>
+    <div class="section">
+      <a href="{{settings.announce_url}}">
+        {{settings.announce_text}}
+      </a>
+    </div>
+    <div class="section">
+      <div class="multi-currency">
+        {% form 'currency' %}
+        <label>Currency</label>
+        <select name="currency">
+          {% for currency in shop.enabled_currencies %}
+          {% if currency == cart.currency %}
+          <option selected="true" value="{{currency.iso_code}}">{{currency.iso_code}} {{ currency.symbol }}</option>
+          {% else %}
+          <option value="{{currency.iso_code}}">{{currency.iso_code}} {{ currency.symbol }}</option>
+          {% endif %}
+          {% endfor %}
+        </select>
+        {% endform %}
+      </div>
+      <a href="/cart" class="cart-mobile opacity">
+        Cart
+        <div class="side-cart cart"><span class="cart-count">{{cart.item_count}}</span></div>
+      </a>
+    </div>
+  </div>
 </div>
