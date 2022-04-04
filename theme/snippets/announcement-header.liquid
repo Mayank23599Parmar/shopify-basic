@@ -6,21 +6,7 @@
       {% else %}
       <a href="/account/login">Login</a>
       {% endif %}
-
-      <div class="launguage-selector">
-        {% form 'localization' %}
-        <select name="language">
-          {% for language in localization.available_languages %}
-          <option {% if language.iso_code==localization.language.iso_code %} aria-current="true" {% endif %}
-            hreflang="{{ language.iso_code }}" lang="{{ language.iso_code }}" data-value="{{ language.iso_code }}">
-            {{ language.endonym_name | capitalize }}
-
-          </option>
-          {% endfor %}
-        </select>
-        <input type="hidden" name="language_code" value="{{ localization.language.iso_code }}">
-        {% endform %}
-      </div>
+      
     </div>
     <div class="section">
       <a href="{{settings.announce_url}}">

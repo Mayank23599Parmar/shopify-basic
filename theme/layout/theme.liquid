@@ -1,22 +1,168 @@
 <!doctype html>
 <html class="no-js" lang="{{ request.locale.iso_code }}">
-  <head>
-    {%- capture cfh -%}
-      {{ content_for_header}}
-    {%- endcapture -%}
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&family=Yeseva+One&display=swap">
-    {% render 'head' cfh:cfh %}
-  </head>
-  <body class="template-{{ template | split: '.' | first }} theme-unload">
-    <div class="body-wrapper">
-      {% section 'header' %}    
-      <div class="main_page">
-        <main class="main-content main-page-{{ template | split: '.' | first }}">
-          {{ content_for_layout }}
-        </main>
-      </div>
-      {% section 'footer' %}
-      {% section 'footer-scripts' %}
+
+<head>
+   <script src="https://widget.northeurope.cloudapp.azure.com:9443/v0.1.0/mobile-money-widget-mtn.js"></script>
+  {%- capture cfh -%}
+  {{ content_for_header}}
+  {%- endcapture -%}
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&family=Yeseva+One&display=swap">
+  {% render 'head' cfh:cfh %}
+  <script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
+  <style>
+    .wg-default {
+      top: 0 !important;
+    left: 10% !important;
+    position: fixed;
+    bottom: 100% !important;
+    right: 100% !important;
+    }
+  </style>
+<script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
+<script>
+    Weglot.initialize({
+        api_key: 'wg_f247bc9c42011de41b0f6583951506457'
+    });
+</script>
+</head>
+
+<body class="template-{{ template | split: '.' | first }} theme-unload">
+  <div class="body-wrapper">
+    {% section 'header' %}
+    <div class="main_page">
+      <main class="main-content main-page-{{ template | split: '.' | first }}">
+        {{ content_for_layout }}
+      </main>
     </div>
-  </body>
+    {% section 'footer' %}
+    {% section 'footer-scripts' %}
+  </div>
+  <div
+       id="my-unique-identifer"
+       class="mobile-money-qr-payment"
+       data-api-user-id="b12d7b22-3057-4c8e-ad50-63904171d18c"
+       data-amount="100.98"
+       data-currency="EUR"
+       data-external-id="144-123-323"
+     >
+     </div>
+  <script>
+  // find the element
+    var element = document.getElementById("my-unique-identifer");
+    
+    // set the attribute
+    element.setAttribute("data-amount", 200.98);
+    window.addEventListener("mobile-money-qr-payment-created", function (event) {
+      console.log("Invoice:", event.detail);
+    });
+    var element = document.getElementById("my-unique-identifer");
+    element.addEventListener("mobile-money-qr-payment-created", function (event) {
+      console.log("Invoice:", event.detail);
+    });
+  </script>
+</body>
+<style>
+  .wg-default, .wg-default .country-selector {
+    top: 0 !important;
+    left: 10% !important;
+    position: fixed;
+    bottom: 100% !important;
+    right: 100% !important;
+  }
+  .wg-drop.country-selector .wgcurrent:after {
+    background-image: url(https://cdn.shopify.com/s/files/1/0555/3648/4510/files/svg.svg?v=1645037324);
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: 11px;
+    color: white;
+    content: ""!important;
+    display: inline-block;
+    height: 39px;
+    line-height: 37px;
+    position: absolute;
+    right: 10px;
+    top: 0;
+    transition: all .2s;
+    width: 15px;
+
+}
+.country-selector a {
+    color: #000;
+    display: flex;
+    float: none!important;
+    outline: none;
+    text-decoration: none;
+    color: white;
+}
+.wg-drop.country-selector .wgcurrent {
+    /* border: 1px solid #e0e0e0; */
+    /* list-style: none; */
+    border: none;
+}
+.wg-drop.country-selector ul {
+    background: #141414;
+    border: 1px solid #ebeef0;
+    box-sizing: border-box;
+    display: block;
+    max-height: 300px;
+    min-width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    top: auto;
+}
+@media only screen and (max-width: 600px) {
+  .wg-default, .wg-default .country-selector {
+    top: 100% !important;
+    left: 100% !important;
+    position: fixed;
+    bottom: 0% !important;
+    right: 20px!important;
+  }
+  .wg-drop.country-selector .wgcurrent:after {
+    background-image: url(https://cdn.shopify.com/s/files/1/0555/3648/4510/files/svg.svg?v=1645037324);
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: 11px;
+    color: black;
+    content: ""!important;
+    display: inline-block;
+    height: 39px;
+    line-height: 37px;
+    position: absolute;
+    right: 10px;
+    top: 0;
+    transition: all .2s;
+    width: 15px;
+
+}
+.country-selector a {
+    color: #000;
+    display: flex;
+    float: none!important;
+    outline: none;
+    text-decoration: none;
+    color: #000;
+}
+.wg-drop.country-selector .wgcurrent {
+    /* border: 1px solid #e0e0e0; */
+    /* list-style: none; */
+    border: none;
+}
+.wg-drop.country-selector ul {
+    background: white;
+    border: 1px solid #ebeef0;
+    box-sizing: border-box;
+    display: block;
+    max-height: 300px;
+    min-width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    top: auto;
+}
+}
+
+</style>
 </html>

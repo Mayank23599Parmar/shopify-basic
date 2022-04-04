@@ -4,8 +4,8 @@
     "theme_name": "Section plus",
     "theme_author": "Lucent innovation",
     "theme_version": "2.0.0",
-    "theme_documentation_url": "https://lucentinnovation.com/",
-    "theme_support_url": "https://lucentinnovation.com/"
+    "theme_documentation_url": "https:\/\/lucentinnovation.com\/",
+    "theme_support_url": "https:\/\/lucentinnovation.com\/"
   },
   {
     "name": "Colors",
@@ -69,34 +69,34 @@
         "default": "#e43535"
       },
       {
-        "type":"header",
-        "content":"Color schemes",
-        "info":"Set color schemes for options 'Light' and 'Dark' here."
+        "type": "header",
+        "content": "Color schemes",
+        "info": "Set color schemes for options 'Light' and 'Dark' here."
       },
       {
-        "type":"color",
-        "id":"section_light_color_bg",
-        "label":"Light background",
-        "default":"#f3f3f3"
+        "type": "color",
+        "id": "section_light_color_bg",
+        "label": "Light background",
+        "default": "#f3f3f3"
       },
       {
-        "type":"color",
-        "id":"section_light_color_text",
-        "label":"Light text",
-        "default":"#000000"
+        "type": "color",
+        "id": "section_light_color_text",
+        "label": "Light text",
+        "default": "#000000"
       },
       {
-        "type":"color",
-        "id":"section_dark_color_bg",
-        "label":"Dark background",
-        "default":"#2d2d2d"
+        "type": "color",
+        "id": "section_dark_color_bg",
+        "label": "Dark background",
+        "default": "#2d2d2d"
       },
       {
-        "type":"color",
-        "id":"section_dark_color_text",
-        "label":"Dark text",
-        "default":"#ffffff"
-      }, 
+        "type": "color",
+        "id": "section_dark_color_text",
+        "label": "Dark text",
+        "default": "#ffffff"
+      },
       {
         "type": "header",
         "content": "Header"
@@ -310,7 +310,7 @@
         "id": "show_multiple_currencies",
         "label": "Enable multi currency",
         "default": false,
-        "info": "Please enable multicurrency using this [URL](https://help.shopify.com/en/manual/payments/shopify-payments/multi-currency/setup)"
+        "info": "Please enable multicurrency using this [URL](https:\/\/help.shopify.com\/en\/manual\/payments\/shopify-payments\/multi-currency\/setup)"
       }
     ]
   },
@@ -320,8 +320,8 @@
       {
         "type": "checkbox",
         "id": "image_blur",
-        "label":"Enable",
-        "default":true
+        "label": "Enable",
+        "default": true
       }
     ]
   },
@@ -331,12 +331,12 @@
       {
         "type": "text",
         "id": "announce_text",
-        "label":"Title"
+        "label": "Title"
       },
       {
         "type": "url",
         "id": "announce_url",
-        "label":"URL"
+        "label": "URL"
       }
     ]
   }
